@@ -12,8 +12,8 @@ export const Home = () => {
       <section className="hero-section">
         <div className="hero-background">
           <img 
-            src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHwyfHxwcm9mZXNzaW9uYWwlMjBjbGVhbmluZ3xlbnwwfHx8fDE3NTg0NjA5ODN8MA&ixlib=rb-4.1.0&q=85"
-            alt="Professionnel RENMOB"
+            src="https://customer-assets.emergentagent.com/job_multiservice-nord/artifacts/wlm6bh00_RE%CC%81NOVATION%20SINISTRE%20EXTE%CC%80RIEURE%202.jpeg"
+            alt="Chantier RENMOB - Rénovation sinistre"
             className="hero-image"
           />
           <div className="hero-overlay"></div>
