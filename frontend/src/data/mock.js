@@ -80,12 +80,6 @@ export const beforeAfterImages = [
 // Galerie spécialisée Syndrome de Diogène
 export const diogeneGallery = [
   {
-    before: "https://customer-assets.emergentagent.com/job_multiservice-nord/artifacts/4a98cng0_NETTOYAGE%20SYNDROME%20DIOGE%CC%80NE%201.jpeg",
-    after: "https://customer-assets.emergentagent.com/job_multiservice-nord/artifacts/0mufpne1_NETTOYAGE%20DIOGE%CC%80NE%203.jpeg",
-    title: "Cuisine - Désencombrement complet",
-    description: "Transformation d'une cuisine entièrement encombrée en espace habitable"
-  },
-  {
     before: "https://customer-assets.emergentagent.com/job_multiservice-nord/artifacts/fxs79o8e_NETTOYAGE%20DIOGE%CC%80NE%202.jpeg",
     after: "https://customer-assets.emergentagent.com/job_multiservice-nord/artifacts/9ux0ox08_NETTOYAGE%20DIOGE%CC%80NE%20APRE%CC%80S%203.jpeg",
     title: "Salon bibliothèque - Tri et organisation",
