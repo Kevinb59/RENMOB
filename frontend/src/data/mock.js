@@ -62,14 +62,14 @@ export const zones = [
 
 export const beforeAfterImages = [
   {
-    before: "https://images.unsplash.com/photo-1634586648651-f1fb9ec10d90?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2Mzl8MHwxfHNlYXJjaHwzfHxyZW5vdmF0aW9ufGVufDB8fHx8MTc1ODQ2MDk3OHww&ixlib=rb-4.1.0&q=85",
-    after: "https://images.unsplash.com/flagged/photo-1573168710465-7f7da9a23a15?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2Mzl8MHwxfHNlYXJjaHw0fHxyZW5vdmF0aW9ufGVufDB8fHx8MTc1ODQ2MDk3OHww&ixlib=rb-4.1.0&q=85",
-    title: "Salon encombré transformé"
+    before: "https://customer-assets.emergentagent.com/job_multiservice-nord/artifacts/g8hnau38_DE%CC%81BARAS%20GARAGE%201.jpeg",
+    after: "https://customer-assets.emergentagent.com/job_multiservice-nord/artifacts/icbkw91c_DE%CC%81BARAS%20GARAGE%202.jpeg",
+    title: "Débarras garage - Transformation complète"
   },
   {
-    before: "https://images.pexels.com/photos/159045/the-interior-of-the-repair-interior-design-159045.jpeg",
-    after: "https://images.pexels.com/photos/4239035/pexels-photo-4239035.jpeg",
-    title: "Cave désencombrement"
+    before: "https://customer-assets.emergentagent.com/job_multiservice-nord/artifacts/eoihxdxv_DE%CC%81BARAS%20MAISON%201.jpeg",
+    after: "https://customer-assets.emergentagent.com/job_multiservice-nord/artifacts/96scwk5d_DE%CC%81BARAS%20MAISON%202.jpeg",
+    title: "Débarras maison - Avant/Après"
   }
 ];
 
