@@ -193,22 +193,22 @@ export const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding section-accent text-center">
+      <section className="section-padding bg-gradient-to-r from-gray-800 to-gray-900 text-center">
         <div className="container mx-auto px-4 lg:px-6">
-          <h2 className="heading-2 mb-4">
+          <h2 className="heading-2 mb-4 text-white">
             Besoin d'un devis gratuit ?
           </h2>
-          <p className="body-large mb-8 max-w-2xl mx-auto opacity-90">
+          <p className="body-large mb-8 max-w-2xl mx-auto text-gray-200">
             Contactez-nous dès maintenant pour une évaluation gratuite et sans engagement de votre projet.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-white text-[var(--brand-primary)] hover:bg-gray-100 border-0" size="lg" asChild>
+            <Button className="bg-[var(--brand-primary)] text-black hover:bg-[var(--brand-hover)] border-0 font-bold" size="lg" asChild>
               <Link to="/contact">
                 Demander un devis
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
             </Button>
-            <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[var(--brand-primary)]" size="lg" asChild>
+            <Button className="bg-transparent border-2 border-[var(--brand-primary)] text-[var(--brand-primary)] hover:bg-[var(--brand-primary)] hover:text-black font-semibold" size="lg" asChild>
               <a href="tel:0662896049">
                 <Phone className="mr-2 w-5 h-5" />
                 06 62 89 60 49
