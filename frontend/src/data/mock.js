@@ -12,8 +12,15 @@ export const services = [
     id: 1,
     title: "Débarras maison & appartement",
     description: "Débarras complet ou partiel, tri, recyclage et valorisation des objets. Nous vous rendons un logement vide, propre et prêt à être vendu, loué ou rénové.",
-    image: "https://images.unsplash.com/photo-1686178827149-6d55c72d81df?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHwxfHxjbGVhbmluZyUyMHNlcnZpY2V8ZW58MHx8fHwxNzU4NDYwOTY5fDA&ixlib=rb-4.1.0&q=85",
-    slug: "debarras-maison"
+    image: "https://customer-assets.emergentagent.com/job_multiservice-nord/artifacts/eoihxdxv_DE%CC%81BARAS%20MAISON%201.jpeg",
+    slug: "debarras-maison",
+    gallery: [
+      "https://customer-assets.emergentagent.com/job_multiservice-nord/artifacts/eoihxdxv_DE%CC%81BARAS%20MAISON%201.jpeg",
+      "https://customer-assets.emergentagent.com/job_multiservice-nord/artifacts/96scwk5d_DE%CC%81BARAS%20MAISON%202.jpeg",
+      "https://customer-assets.emergentagent.com/job_multiservice-nord/artifacts/i8tngs2y_DE%CC%81BARAS%20MIASON%202.jpeg",
+      "https://customer-assets.emergentagent.com/job_multiservice-nord/artifacts/g8hnau38_DE%CC%81BARAS%20GARAGE%201.jpeg",
+      "https://customer-assets.emergentagent.com/job_multiservice-nord/artifacts/icbkw91c_DE%CC%81BARAS%20GARAGE%202.jpeg"
+    ]
   },
   {
     id: 2,
