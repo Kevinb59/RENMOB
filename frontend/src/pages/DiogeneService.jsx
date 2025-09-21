@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Heart, Shield, Clock, Users, CheckCircle, Phone } from 'lucide-react';
+import { ArrowRight, Heart, Shield, Clock, Users, CheckCircle, Phone, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
+import { diogeneGallery } from '../data/mock';
 
 export const DiogeneService = () => {
   const processSteps = [
