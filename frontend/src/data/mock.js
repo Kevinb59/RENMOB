@@ -40,8 +40,12 @@ export const services = [
     id: 4,
     title: "Syndrome de Diogène",
     description: "Intervention spécialisée, respectueuse et discrète. Tri, désencombrement, désinfection et nettoyage complet du logement.",
-    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHwyfHxwcm9mZXNzaW9uYWwlMjBjbGVhbmluZ3xlbnwwfHx8fDE3NTg0NjA5ODN8MA&ixlib=rb-4.1.0&q=85",
-    slug: "syndrome-diogene"
+    image: "https://customer-assets.emergentagent.com/job_multiservice-nord/artifacts/o4e3p70j_NETTOYAGE%20SYNDROME%20DIOGE%CC%80NE%201.jpeg",
+    slug: "syndrome-diogene",
+    gallery: [
+      "https://customer-assets.emergentagent.com/job_multiservice-nord/artifacts/o4e3p70j_NETTOYAGE%20SYNDROME%20DIOGE%CC%80NE%201.jpeg",
+      "https://customer-assets.emergentagent.com/job_multiservice-nord/artifacts/rkhg623v_NETTOYAGE%20DIOGE%CC%80NE%202.jpeg"
+    ]
   },
   {
     id: 5,
