@@ -74,14 +74,14 @@ export const Contact = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-[var(--secondary-olive)] text-[var(--text-primary)] hover:scale-105 transition-transform duration-300">
+            <Card className="bg-gradient-to-br from-green-700 to-green-800 text-white hover:scale-105 transition-transform duration-300">
               <CardContent className="p-8 text-center">
-                <MessageCircle className="w-12 h-12 mx-auto mb-4" />
-                <h3 className="heading-5 mb-3">WhatsApp</h3>
-                <a href={`https://wa.me/33${contactInfo.whatsapp.substring(1)}`} className="body-medium hover:opacity-80">
+                <MessageCircle className="w-12 h-12 mx-auto mb-4 text-green-200" />
+                <h3 className="heading-5 mb-3 text-white">WhatsApp</h3>
+                <a href={`https://wa.me/33${contactInfo.whatsapp.substring(1)}`} className="body-medium hover:text-green-200 text-white font-semibold">
                   {contactInfo.whatsapp}
                 </a>
-                <p className="caption mt-2 opacity-80">Réponse rapide</p>
+                <p className="caption mt-2 text-green-200">Réponse rapide</p>
               </CardContent>
             </Card>
 
