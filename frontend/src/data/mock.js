@@ -66,14 +66,14 @@ export const zones = [
 
 export const beforeAfterImages = [
   {
+    before: "https://customer-assets.emergentagent.com/job_multiservice-nord/artifacts/stv9r4my_DE%CC%81BARAS%20MAISON%201.jpeg",
+    after: "https://customer-assets.emergentagent.com/job_multiservice-nord/artifacts/edgfihir_WhatsApp%20Image%202025-09-21%20at%2017.55.46.jpeg",
+    title: "Débarras et nettoyage complet - Transformation spectaculaire"
+  },
+  {
     before: "https://customer-assets.emergentagent.com/job_multiservice-nord/artifacts/g8hnau38_DE%CC%81BARAS%20GARAGE%201.jpeg",
     after: "https://customer-assets.emergentagent.com/job_multiservice-nord/artifacts/icbkw91c_DE%CC%81BARAS%20GARAGE%202.jpeg",
     title: "Débarras garage - Transformation complète"
-  },
-  {
-    before: "https://customer-assets.emergentagent.com/job_multiservice-nord/artifacts/eoihxdxv_DE%CC%81BARAS%20MAISON%201.jpeg",
-    after: "https://customer-assets.emergentagent.com/job_multiservice-nord/artifacts/96scwk5d_DE%CC%81BARAS%20MAISON%202.jpeg",
-    title: "Débarras maison - Avant/Après"
   }
 ];
 
