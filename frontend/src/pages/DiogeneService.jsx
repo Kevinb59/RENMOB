@@ -97,9 +97,9 @@ export const DiogeneService = () => {
           </div>
 
           {/* Services détaillés */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
             <div>
-              <h3 className="heading-3 text-[var(--secondary-olive)] mb-8">Nos interventions incluent</h3>
+              <h3 className="heading-3 text-[var(--brand-primary)] mb-8">Nos interventions incluent</h3>
               
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
@@ -150,6 +150,103 @@ export const DiogeneService = () => {
                 alt="Nettoyage syndrome de Diogène - Résultat RENMOB"
                 className="w-full rounded-lg shadow-lg"
               />
+            </div>
+          </div>
+
+          {/* Galerie Avant/Après - Carrousel interactif */}
+          <div className="mb-16">
+            <div className="text-center mb-8">
+              <h3 className="heading-2 text-[var(--text-primary)] mb-4">Nos Transformations Réelles</h3>
+              <p className="body-large text-[var(--text-secondary)] max-w-2xl mx-auto">
+                Découvrez nos interventions concrètes avec des transformations spectaculaires
+              </p>
+            </div>
+
+            <div className="bg-[var(--bg-card)] rounded-2xl p-8 shadow-lg">
+              {/* Carrousel Avant/Après */}
+              <div className="relative">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
+                  {/* Image Avant */}
+                  <div className="relative group">
+                    <div className="absolute top-4 left-4 z-10">
+                      <span className="bg-red-600 text-white px-4 py-2 rounded-full font-semibold text-sm shadow-lg">
+                        AVANT
+                      </span>
+                    </div>
+                    <img 
+                      src={diogeneGallery[currentImageIndex].before}
+                      alt={`Avant - ${diogeneGallery[currentImageIndex].title}`}
+                      className="w-full h-80 object-cover rounded-xl shadow-md transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+
+                  {/* Image Après */}
+                  <div className="relative group">
+                    <div className="absolute top-4 right-4 z-10">
+                      <span className="bg-green-600 text-white px-4 py-2 rounded-full font-semibold text-sm shadow-lg">
+                        APRÈS
+                      </span>
+                    </div>
+                    <img 
+                      src={diogeneGallery[currentImageIndex].after}
+                      alt={`Après - ${diogeneGallery[currentImageIndex].title}`}
+                      className="w-full h-80 object-cover rounded-xl shadow-md transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                </div>
+
+                {/* Informations sur l'intervention */}
+                <div className="text-center mb-6">
+                  <h4 className="heading-4 text-[var(--text-primary)] mb-3">
+                    {diogeneGallery[currentImageIndex].title}
+                  </h4>
+                  <p className="body-medium text-[var(--text-secondary)]">
+                    {diogeneGallery[currentImageIndex].description}
+                  </p>
+                </div>
+
+                {/* Navigation */}
+                <div className="flex justify-center items-center space-x-6">
+                  <button
+                    onClick={prevImage}
+                    className="bg-[var(--brand-primary)] hover:bg-[var(--brand-hover)] text-black p-3 rounded-full transition-all duration-300 hover:scale-110 shadow-lg"
+                    aria-label="Image précédente"
+                  >
+                    <ChevronLeft className="w-6 h-6" />
+                  </button>
+
+                  {/* Indicateurs */}
+                  <div className="flex space-x-2">
+                    {diogeneGallery.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentImageIndex(index)}
+                        className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                          index === currentImageIndex 
+                            ? 'bg-[var(--brand-primary)] scale-125' 
+                            : 'bg-[var(--border-medium)] hover:bg-[var(--brand-primary)] hover:opacity-70'
+                        }`}
+                        aria-label={`Aller à l'image ${index + 1}`}
+                      />
+                    ))}
+                  </div>
+
+                  <button
+                    onClick={nextImage}
+                    className="bg-[var(--brand-primary)] hover:bg-[var(--brand-hover)] text-black p-3 rounded-full transition-all duration-300 hover:scale-110 shadow-lg"
+                    aria-label="Image suivante"
+                  >
+                    <ChevronRight className="w-6 h-6" />
+                  </button>
+                </div>
+
+                {/* Compteur */}
+                <div className="text-center mt-4">
+                  <p className="caption text-[var(--text-muted)]">
+                    {currentImageIndex + 1} / {diogeneGallery.length}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
