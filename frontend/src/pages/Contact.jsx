@@ -63,14 +63,14 @@ export const Contact = () => {
       <section className="py-16 bg-[var(--bg-card)]">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="bg-[var(--brand-primary)] text-[var(--text-inverse)] hover:scale-105 transition-transform duration-300">
+            <Card className="bg-gradient-to-br from-gray-800 to-gray-900 text-white border border-[var(--brand-primary)] hover:scale-105 transition-transform duration-300">
               <CardContent className="p-8 text-center">
-                <Phone className="w-12 h-12 mx-auto mb-4" />
-                <h3 className="heading-5 mb-3">Téléphone</h3>
-                <a href={`tel:${contactInfo.phone}`} className="body-medium hover:opacity-80">
+                <Phone className="w-12 h-12 mx-auto mb-4 text-[var(--brand-primary)]" />
+                <h3 className="heading-5 mb-3 text-white">Téléphone</h3>
+                <a href={`tel:${contactInfo.phone}`} className="body-medium hover:text-[var(--brand-primary)] text-gray-200 font-semibold">
                   {contactInfo.phone}
                 </a>
-                <p className="caption mt-2 opacity-80">Disponible 7j/7</p>
+                <p className="caption mt-2 text-gray-400">Disponible 7j/7</p>
               </CardContent>
             </Card>
 
