@@ -6,6 +6,16 @@ import { Card, CardContent } from '../components/ui/card';
 import { diogeneGallery } from '../data/mock';
 
 export const DiogeneService = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % diogeneGallery.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + diogeneGallery.length) % diogeneGallery.length);
+  };
+
   const processSteps = [
     {
       icon: Phone,
