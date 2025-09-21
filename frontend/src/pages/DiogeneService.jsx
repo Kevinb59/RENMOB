@@ -34,8 +34,8 @@ export const DiogeneService = () => {
       <section className="hero-section">
         <div className="hero-background">
           <img 
-            src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHwyfHxwcm9mZXNzaW9uYWwlMjBjbGVhbmluZ3xlbnwwfHx8fDE3NTg0NjA5ODN8MA&ixlib=rb-4.1.0&q=85"
-            alt="Intervention spécialisée"
+            src="https://customer-assets.emergentagent.com/job_multiservice-nord/artifacts/o4e3p70j_NETTOYAGE%20SYNDROME%20DIOGE%CC%80NE%201.jpeg"
+            alt="Intervention syndrome de Diogène - RENMOB"
             className="hero-image"
           />
           <div className="hero-overlay"></div>
