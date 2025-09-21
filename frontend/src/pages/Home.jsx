@@ -166,25 +166,25 @@ export const Home = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="flex justify-center">
             {beforeAfterImages.map((item, index) => (
-              <div key={index} className="bg-white rounded-lg overflow-hidden shadow-sm border border-[var(--border-light)]">
+              <div key={index} className="bg-[var(--bg-card)] rounded-lg overflow-hidden shadow-lg border border-[var(--border-light)] max-w-4xl w-full">
                 <div className="grid grid-cols-2">
                   <div className="relative">
-                    <img src={item.before} alt="Avant" className="w-full h-64 object-cover" />
-                    <div className="absolute top-4 left-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                    <img src={item.before} alt="Avant" className="w-full h-80 object-cover" />
+                    <div className="absolute top-4 left-4 bg-red-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
                       Avant
                     </div>
                   </div>
                   <div className="relative">
-                    <img src={item.after} alt="Après" className="w-full h-64 object-cover" />
-                    <div className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                    <img src={item.after} alt="Après" className="w-full h-80 object-cover" />
+                    <div className="absolute top-4 right-4 bg-green-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
                       Après
                     </div>
                   </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="heading-5">{item.title}</h3>
+                <div className="p-6 text-center">
+                  <h3 className="heading-5 text-[var(--text-primary)]">{item.title}</h3>
                 </div>
               </div>
             ))}
