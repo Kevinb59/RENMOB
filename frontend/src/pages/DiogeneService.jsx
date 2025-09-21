@@ -135,8 +135,8 @@ export const DiogeneService = () => {
             
             <div>
               <img 
-                src="https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2Mzl8MHwxfHNlYXJjaHwxfHxyZW5vdmF0aW9ufGVufDB8fHx8MTc1ODQ2MDk3OHww&ixlib=rb-4.1.0&q=85" 
-                alt="Transformation avant/après"
+                src="https://customer-assets.emergentagent.com/job_multiservice-nord/artifacts/rkhg623v_NETTOYAGE%20DIOGE%CC%80NE%202.jpeg" 
+                alt="Nettoyage syndrome de Diogène - Résultat RENMOB"
                 className="w-full rounded-lg shadow-lg"
               />
             </div>
