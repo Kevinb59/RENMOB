@@ -51,7 +51,7 @@ export const services = [
     id: 5,
     title: "Entretien extérieur & toitures",
     description: "Nettoyage et démoussage de toitures, entretien de jardins et espaces verts.",
-    image: "https://images.unsplash.com/photo-1437326300822-01d8f13c024f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHwzfHxwcm9mZXNzaW9uYWwlMjBjbGVhbmluZ3xlbnwwfHx8fDE3NTg0NjA5ODN8MA&ixlib=rb-4.1.0&q=85",
+    image: "https://customer-assets.emergentagent.com/job_multiservice-nord/artifacts/1bian25y_NETTOYAGE%20TOITURE.jpeg",
     slug: "entretien-exterieur"
   }
 ];
