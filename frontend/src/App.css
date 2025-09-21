@@ -1,41 +1,42 @@
-/* RENMOB App Styles - Based on Official Logo Colors */
+/* RENMOB App Styles - Fond noir avec logo intégré et lisibilité optimisée */
 
-/* Core CSS Variables - RENMOB Brand Colors */
+/* Core CSS Variables - RENMOB Brand Colors Optimized */
 :root {
-  /* Backgrounds */
-  --bg-page: #fafafa;                        /* Light gray background for better readability */
-  --bg-card: #ffffff;                        /* Pure white card backgrounds */
-  --bg-dark: #2c2c2c;                        /* Dark sections */
-  --bg-light: #f8f8f8;                       /* Very light gray */
+  /* Backgrounds - Fond noir élégant */
+  --bg-page: #1a1a1a;                       /* Fond noir principal */
+  --bg-card: #2a2a2a;                       /* Cartes gris foncé */
+  --bg-dark: #0f0f0f;                       /* Sections très sombres */
+  --bg-light: #333333;                      /* Gris foncé pour contraste */
   
-  /* Text Colors */
-  --text-primary: #2c2c2c;                   /* Dark gray primary text */
-  --text-secondary: #666666;                 /* Medium gray supporting text */
-  --text-muted: #999999;                     /* Light gray muted text */
-  --text-inverse: #ffffff;                   /* White text on dark backgrounds */
+  /* Text Colors - Optimisé pour fond noir */
+  --text-primary: #ffffff;                   /* Blanc pur pour texte principal */
+  --text-secondary: #cccccc;                 /* Gris clair pour texte secondaire */
+  --text-muted: #999999;                     /* Gris moyen pour texte discret */
+  --text-inverse: #1a1a1a;                  /* Noir sur fond clair */
   
-  /* RENMOB Brand Colors - From Logo */
-  --brand-primary: #DAA520;                  /* Golden yellow from logo - much softer */
-  --brand-secondary: #1e3a8a;               /* Deep blue */
-  --brand-accent: #dc2626;                  /* Clean red accent */
-  --brand-dark: #1f1f1f;                   /* Near black */
+  /* RENMOB Brand Colors - Optimisé pour visibilité sur noir */
+  --brand-primary: #F4D03F;                 /* Jaune doré plus visible sur noir */
+  --brand-secondary: #3498DB;               /* Bleu vif */
+  --brand-accent: #E74C3C;                  /* Rouge vif */
+  --brand-dark: #1a1a1a;                   /* Noir principal */
   
   /* Interactive States */
-  --brand-hover: #B8860B;                   /* Darker gold for hover */
-  --brand-active: #8B6914;                  /* Even darker for active state */
+  --brand-hover: #F7DC6F;                   /* Jaune plus clair pour hover */
+  --brand-active: #D4AC0D;                  /* Jaune plus foncé pour active */
   
-  /* Borders */
-  --border-light: #e5e5e5;                  /* Light border */
-  --border-medium: #cccccc;                 /* Medium border */
-  --border-strong: #999999;                 /* Strong border */
+  /* Borders - Subtils sur fond noir */
+  --border-light: #404040;                  /* Bordure subtile */
+  --border-medium: #555555;                 /* Bordure moyenne */
+  --border-strong: #777777;                 /* Bordure forte */
   
-  /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
-  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  /* Shadows pour profondeur */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.5);
+  --glow: 0 0 20px rgba(244, 208, 63, 0.3);
 }
 
-/* Typography System */
+/* Typography System - Optimisé pour fond noir */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 body {
@@ -47,20 +48,21 @@ body {
   line-height: 1.6;
 }
 
-/* Headlines - More readable approach */
+/* Headlines - Bien visibles sur fond noir */
 .heading-1 { 
   font-family: 'Inter', Arial, sans-serif; 
   font-weight: 800; 
-  font-size: clamp(2rem, 1.5rem + 2vw, 3.5rem); 
+  font-size: clamp(2.5rem, 2rem + 2vw, 4rem); 
   line-height: 1.2; 
   color: var(--text-primary);
   margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .heading-2 { 
   font-family: 'Inter', Arial, sans-serif; 
   font-weight: 700; 
-  font-size: clamp(1.75rem, 1.25rem + 1.5vw, 2.5rem); 
+  font-size: clamp(2rem, 1.5rem + 1.5vw, 3rem); 
   line-height: 1.3; 
   color: var(--text-primary);
   margin-bottom: 0.75rem;
@@ -69,9 +71,9 @@ body {
 .heading-3 { 
   font-family: 'Inter', Arial, sans-serif; 
   font-weight: 700; 
-  font-size: clamp(1.5rem, 1.125rem + 1vw, 2rem); 
+  font-size: clamp(1.5rem, 1.25rem + 1vw, 2.25rem); 
   line-height: 1.3; 
-  color: var(--text-primary);
+  color: var(--brand-primary);
   margin-bottom: 0.5rem;
 }
 
@@ -99,13 +101,13 @@ body {
   color: var(--text-primary);
 }
 
-/* Body text */
+/* Body text - Lisible sur fond noir */
 .body-large { 
   font-family: 'Inter', Arial, sans-serif; 
   font-weight: 400; 
   font-size: 1.125rem; 
-  line-height: 1.6; 
-  color: var(--text-primary); 
+  line-height: 1.7; 
+  color: var(--text-secondary); 
 }
 
 .body-medium { 
@@ -113,7 +115,7 @@ body {
   font-weight: 400; 
   font-size: 1rem; 
   line-height: 1.6; 
-  color: var(--text-primary); 
+  color: var(--text-secondary); 
 }
 
 .body-small { 
@@ -121,7 +123,7 @@ body {
   font-weight: 400; 
   font-size: 0.875rem; 
   line-height: 1.5; 
-  color: var(--text-secondary); 
+  color: var(--text-muted); 
 }
 
 .caption { 
@@ -134,31 +136,34 @@ body {
   letter-spacing: 0.05em; 
 }
 
-/* Button System - Much more readable */
+/* Button System - Très visible et moderne */
 .btn-primary {
-  background: var(--brand-primary) !important;
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-hover)) !important;
   color: var(--text-inverse) !important;
   border: none !important;
-  border-radius: 8px !important;
-  padding: 0.75rem 1.5rem !important;
+  border-radius: 12px !important;
+  padding: 1rem 2rem !important;
   font-family: 'Inter', Arial, sans-serif !important;
   font-weight: 600 !important;
-  font-size: 0.95rem !important;
+  font-size: 1rem !important;
   cursor: pointer;
-  transition: all 0.2s ease !important;
-  min-height: 48px !important;
+  transition: all 0.3s ease !important;
+  min-height: 52px !important;
   text-decoration: none !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
   line-height: 1.2 !important;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 700 !important;
 }
 
 .btn-primary:hover {
-  background: var(--brand-hover) !important;
-  transform: translateY(-1px) !important;
-  box-shadow: var(--shadow-md) !important;
+  background: linear-gradient(135deg, var(--brand-hover), var(--brand-primary)) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: var(--glow), var(--shadow-lg) !important;
   color: var(--text-inverse) !important;
 }
 
@@ -170,33 +175,35 @@ body {
   background: transparent !important;
   color: var(--brand-primary) !important;
   border: 2px solid var(--brand-primary) !important;
-  border-radius: 8px !important;
-  padding: 0.75rem 1.5rem !important;
+  border-radius: 12px !important;
+  padding: 1rem 2rem !important;
   font-family: 'Inter', Arial, sans-serif !important;
   font-weight: 600 !important;
-  font-size: 0.95rem !important;
+  font-size: 1rem !important;
   cursor: pointer;
-  transition: all 0.2s ease !important;
-  min-height: 48px !important;
+  transition: all 0.3s ease !important;
+  min-height: 52px !important;
   text-decoration: none !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
   line-height: 1.2 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .btn-secondary:hover {
   background: var(--brand-primary) !important;
   color: var(--text-inverse) !important;
-  transform: translateY(-1px) !important;
-  box-shadow: var(--shadow-md) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: var(--glow) !important;
 }
 
 .btn-secondary:active {
   transform: translateY(0) !important;
 }
 
-/* Navigation Links */
+/* Navigation Links - Élégant sur fond noir */
 .nav-link {
   color: var(--text-primary);
   text-decoration: none;
@@ -204,31 +211,33 @@ body {
   font-size: 0.95rem;
   font-weight: 500;
   padding: 0.75rem 1rem;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   position: relative;
 }
 
 .nav-link:hover {
   color: var(--brand-primary);
+  text-shadow: 0 0 8px rgba(244, 208, 63, 0.5);
 }
 
-.nav-link:active {
-  color: var(--brand-active);
+.nav-link.active {
+  color: var(--brand-primary);
+  font-weight: 600;
 }
 
-/* Cards */
+/* Cards - Élégantes sur fond noir */
 .service-card {
   background: var(--bg-card);
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
-  transition: all 0.3s ease;
-  box-shadow: var(--shadow-sm);
+  transition: all 0.4s ease;
+  box-shadow: var(--shadow-md);
   border: 1px solid var(--border-light);
 }
 
 .service-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg), 0 0 30px rgba(244, 208, 63, 0.15);
   border-color: var(--brand-primary);
 }
 
@@ -242,26 +251,26 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s ease;
 }
 
 .service-card:hover .service-card-image img {
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 .service-card-content {
-  padding: 1.5rem;
+  padding: 2rem;
 }
 
-/* Hero Section */
+/* Hero Section - Impact maximal */
 .hero-section {
-  background: linear-gradient(135deg, var(--bg-dark) 0%, rgba(44, 44, 44, 0.95) 100%);
-  min-height: 80vh;
+  background: var(--bg-page);
+  min-height: 90vh;
   display: flex;
   align-items: center;
   position: relative;
   padding: 4rem 0;
-  color: var(--text-inverse);
+  overflow: hidden;
 }
 
 .hero-background {
@@ -279,11 +288,11 @@ body {
   height: 100%;
   position: absolute;
   inset: 0%;
-  opacity: 0.3;
+  opacity: 0.15;
 }
 
 .hero-overlay {
-  background: linear-gradient(135deg, rgba(28, 28, 28, 0.8) 0%, rgba(28, 28, 28, 0.4) 100%);
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(26, 26, 26, 0.7) 100%);
   width: 100%;
   height: 100%;
   position: absolute;
@@ -294,34 +303,30 @@ body {
 .hero-content {
   position: relative;
   z-index: 10;
-  max-width: 100%;
+  max-w: 100%;
 }
 
 .hero-title {
   font-family: 'Inter', Arial, sans-serif;
-  font-weight: 800;
-  font-size: clamp(2.25rem, 2rem + 2vw, 4rem);
+  font-weight: 900;
+  font-size: clamp(2.5rem, 2.5rem + 2vw, 4.5rem);
   line-height: 1.1;
-  color: var(--text-inverse);
-  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
 }
 
-/* Sections with better spacing */
+/* Sections avec meilleur contraste */
 .section-padding {
-  padding: 4rem 0;
-}
-
-.section-light {
-  background: var(--bg-page);
-}
-
-.section-white {
-  background: var(--bg-card);
+  padding: 5rem 0;
 }
 
 .section-dark {
-  background: var(--bg-dark);
-  color: var(--text-inverse);
+  background: var(--bg-page);
+}
+
+.section-card {
+  background: var(--bg-card);
 }
 
 .section-accent {
@@ -336,6 +341,21 @@ body {
   padding: 0 1.5rem;
 }
 
+/* Logo styling - Parfaitement intégré */
+.logo-header {
+  height: 60px !important;
+  width: auto !important;
+  max-width: 200px !important;
+  filter: brightness(1.1) contrast(1.1) !important;
+}
+
+.logo-footer {
+  height: 50px !important;
+  width: auto !important;
+  max-width: 180px !important;
+  filter: brightness(1.2) contrast(1.1) !important;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .container {
@@ -344,7 +364,7 @@ body {
   
   .hero-section {
     padding: 3rem 0;
-    min-height: 70vh;
+    min-height: 80vh;
   }
   
   .section-padding {
@@ -354,7 +374,13 @@ body {
   .btn-primary,
   .btn-secondary {
     width: 100%;
-    min-height: 52px;
+    min-height: 56px;
+    padding: 1.25rem 2rem !important;
+  }
+  
+  .logo-header {
+    height: 50px !important;
+    max-width: 160px !important;
   }
 }
 
@@ -363,11 +389,17 @@ body {
 .mb-4 { margin-bottom: 1rem; }
 .mb-6 { margin-bottom: 1.5rem; }
 .mb-8 { margin-bottom: 2rem; }
+.mb-12 { margin-bottom: 3rem; }
 .mt-4 { margin-top: 1rem; }
 .mt-6 { margin-top: 1.5rem; }
 .mt-8 { margin-top: 2rem; }
 
-/* Override any conflicting App styles */
+/* Effets de glow sur les éléments importants */
+.glow-on-hover:hover {
+  box-shadow: var(--glow);
+}
+
+/* Override conflicting styles */
 .App {
   background-color: var(--bg-page);
   min-height: 100vh;
