@@ -26,7 +26,7 @@ export const services = [
     id: 2,
     title: "Débarras cave, grenier et garage",
     description: "Nous désencombrons tous types de pièces. Évacuation de meubles, cartons, électroménagers et objets lourds ou volumineux.",
-    image: "https://images.unsplash.com/photo-1634586648651-f1fb9ec10d90?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2Mzl8MHwxfHNlYXJjaHwzfHxyZW5vdmF0aW9ufGVufDB8fHx8MTc1ODQ2MDk3OHww&ixlib=rb-4.1.0&q=85",
+    image: "https://customer-assets.emergentagent.com/job_multiservice-nord/artifacts/m7qasur4_DE%CC%81BARAS%20GRENIER.jpeg",
     slug: "debarras-cave-grenier"
   },
   {
