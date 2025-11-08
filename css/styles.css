@@ -1,0 +1,1463 @@
+/**
+ * RENMOB - Styles CSS Principaux
+ * Site vitrine statique HTML/CSS/JS
+ * Style moderne avec fond noir et accents jaune doré
+ * Version: 2024-12-19 - Header layout vertical
+ */
+
+/* ========================================
+   1. POLICES PERSONNALISÉES
+   ======================================== */
+
+/**
+ * Police DAGGERSQUARE pour le nom de marque RENMOB
+ * Format: OpenType Font
+ * Usage: Nom de marque uniquement pour impact visuel fort
+ */
+@font-face {
+  font-family: 'DAGGERSQUARE';
+  src: url('../assets/fonts/DAGGERSQUARE.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Améliore les performances de chargement */
+}
+
+/* ========================================
+   2. VARIABLES CSS ET CONFIGURATION DE BASE
+   ======================================== */
+
+:root {
+  /* Couleurs de fond - Thème sombre élégant */
+  --bg-page: #1a1a1a; /* Fond noir principal */
+  --bg-card: #2a2a2a; /* Cartes gris foncé */
+  --bg-dark: #0f0f0f; /* Sections très sombres */
+
+  /* Couleurs de texte - Optimisé pour fond noir */
+  --text-primary: #ffffff; /* Blanc pur pour texte principal */
+  --text-secondary: #cccccc; /* Gris clair pour texte secondaire */
+  --text-muted: #999999; /* Gris moyen pour texte discret */
+  --text-inverse: #1a1a1a; /* Noir sur fond clair */
+
+  /* Couleurs de marque RENMOB */
+  --brand-primary: #f4d03f; /* Jaune doré principal */
+  --brand-hover: #f7dc6f; /* Jaune clair pour hover */
+  --brand-active: #d4ac0d; /* Jaune foncé pour active */
+  --secondary-olive: #9b8b5e; /* Olive secondaire */
+
+  /* Bordures subtiles */
+  --border-light: #404040; /* Bordure subtile */
+  --border-medium: #555555; /* Bordure moyenne */
+
+  /* Ombres et effets */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.5);
+  --glow: 0 0 20px rgba(244, 208, 63, 0.3);
+}
+
+/* ========================================
+   2. RÉINITIALISATION ET STYLES DE BASE
+   ======================================== */
+
+/* Reset de base pour tous les éléments */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Configuration du body */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial,
+    sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Liens par défaut */
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+/* Images responsive */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Listes sans puces */
+ul,
+ol {
+  list-style: none;
+}
+
+/* ========================================
+   3. TYPOGRAPHIE
+   ======================================== */
+
+/**
+ * Classe pour le nom de marque RENMOB
+ * Utilise la police DAGGERSQUARE pour un impact visuel fort
+ * Appliquée uniquement au nom de la marque dans le contenu textuel
+ */
+.brand-name {
+  font-family: 'DAGGERSQUARE', 'Inter', sans-serif;
+  color: var(--brand-primary);
+  font-weight: normal;
+  letter-spacing: 0.05em;
+  /* Légère augmentation de la taille pour la lisibilité */
+  font-size: 1.1em;
+  /* Empêche la césure du nom de marque */
+  white-space: nowrap;
+}
+
+/* Titres principaux avec hiérarchie claire */
+.hero-title {
+  font-weight: 900;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1.1;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+}
+
+.heading-2 {
+  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.3;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.heading-3 {
+  font-weight: 700;
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  line-height: 1.3;
+  color: var(--brand-primary);
+  margin-bottom: 0.75rem;
+}
+
+.heading-4 {
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 1.4;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.heading-5 {
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.heading-6 {
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.4;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+/* Textes de corps */
+.body-large {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.body-medium {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.body-small {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.caption {
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ========================================
+   4. LAYOUT ET CONTENEURS
+   ======================================== */
+
+/* Conteneur principal avec largeur maximale */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  width: 100%;
+}
+
+/* Sections avec padding vertical */
+.section-padding {
+  padding: 5rem 0;
+}
+
+/* Couleurs de fond pour sections */
+.bg-page {
+  background-color: var(--bg-page);
+}
+
+.bg-card {
+  background-color: var(--bg-card);
+}
+
+.bg-dark {
+  background-color: var(--bg-dark);
+}
+
+/* En-tête de section centrée */
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-header p {
+  margin-top: 1rem;
+}
+
+/* CTA de section */
+.section-cta {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+/* ========================================
+   5. HEADER ET NAVIGATION
+   ======================================== */
+
+/* Header sticky en haut de page */
+.header {
+  background-color: rgba(26, 26, 26, 0.95);
+  border-bottom: 1px solid var(--border-light);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 90px;
+  gap: 2rem;
+}
+
+/* Logo du header */
+.logo-header {
+  height: 60px;
+  width: auto;
+  max-width: 200px;
+  filter: brightness(1.1) contrast(1.1);
+}
+
+/* Navigation desktop */
+.nav-desktop {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Liens de navigation */
+.nav-link {
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.75rem 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: var(--brand-primary);
+  text-shadow: 0 0 8px rgba(244, 208, 63, 0.5);
+}
+
+.nav-link.active {
+  color: var(--brand-primary);
+  font-weight: 600;
+}
+
+/* CTA dans le header */
+.header-cta {
+  display: flex;
+  align-items: center;
+}
+
+/* Layout vertical pour le CTA */
+.header-cta-vertical {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  width: 100%;
+}
+
+.header-phone {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+/* Bouton compact pour l'en-tête */
+.btn-compact {
+  padding: 0.4rem 0.8rem !important;
+  font-size: 0.8rem !important;
+  min-width: 110px;
+  white-space: nowrap;
+}
+
+.header-phone a:hover {
+  color: var(--brand-primary);
+}
+
+/* Menu mobile */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: color 0.3s ease;
+  z-index: 1002;
+  position: relative;
+}
+
+.mobile-menu-btn:hover {
+  color: var(--brand-primary);
+}
+
+/* Overlay pour le menu mobile avec effet blur */
+/* Couvre tout l'écran avec un fond semi-transparent et un flou */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Overlay visible quand le menu est ouvert */
+.mobile-menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Navigation mobile cachée par défaut */
+.nav-mobile {
+  display: none;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border-light);
+  position: fixed;
+  top: 90px; /* Hauteur du header */
+  left: 0;
+  right: 0;
+  z-index: 9999; /* Z-index très élevé pour être sûr */
+  background-color: rgba(26, 26, 26, 0.98);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  max-height: calc(100vh - 90px);
+  overflow-y: auto;
+}
+
+.nav-mobile.active {
+  display: flex;
+}
+
+.nav-mobile .nav-link {
+  padding: 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.nav-mobile .nav-link:hover,
+.nav-mobile .nav-link.active {
+  background-color: var(--bg-card);
+}
+
+.nav-mobile-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-light);
+  margin-top: 1rem;
+}
+
+/* ========================================
+   6. BOUTONS
+   ======================================== */
+
+/* Bouton primaire avec gradient jaune */
+.btn-primary {
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-hover));
+  color: var(--text-inverse);
+  border: none;
+  border-radius: 12px;
+  padding: 1rem 2rem;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: var(--shadow-md);
+  white-space: nowrap;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--brand-hover), var(--brand-primary));
+  transform: translateY(-2px);
+  box-shadow: var(--glow), var(--shadow-lg);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Bouton secondaire avec bordure jaune */
+.btn-secondary {
+  background: transparent;
+  color: var(--brand-primary);
+  border: 2px solid var(--brand-primary);
+  border-radius: 12px;
+  padding: 1rem 2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.btn-secondary:hover {
+  background: var(--brand-primary);
+  color: var(--text-inverse);
+  transform: translateY(-2px);
+  box-shadow: var(--glow);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+/* Variante secondaire light pour fond sombre */
+.btn-secondary-light {
+  border-color: var(--brand-primary);
+  color: var(--brand-primary);
+}
+
+.btn-secondary-light:hover {
+  background: var(--brand-primary);
+  color: var(--text-inverse);
+}
+
+/* Bouton large */
+.btn-lg {
+  padding: 1.25rem 2.5rem;
+  font-size: 1.0625rem;
+  min-height: 56px;
+}
+
+/* ========================================
+   7. SECTION HERO
+   ======================================== */
+
+/* Section hero avec image de fond */
+.hero-section {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 4rem 0;
+  overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.15;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(26, 26, 26, 0.95) 0%,
+    rgba(26, 26, 26, 0.7) 100%
+  );
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 900px;
+}
+
+.hero-text {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+/* Liste à puces dans le hero */
+.hero-list {
+  list-style: none;
+  margin-bottom: 2rem;
+}
+
+.hero-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.hero-list i {
+  color: var(--brand-primary);
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+.hero-location {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+/* Boutons dans le hero */
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* ========================================
+   8. GRILLES ET CARTES
+   ======================================== */
+
+/* Grille des indicateurs de confiance */
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.trust-item {
+  text-align: center;
+}
+
+.trust-icon {
+  width: 64px;
+  height: 64px;
+  background-color: rgba(244, 208, 63, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+
+.trust-icon i {
+  color: var(--brand-primary);
+}
+
+/* Grille des services */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+/* Carte de service */
+.service-card {
+  background: var(--bg-card);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-light);
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg), 0 0 30px rgba(244, 208, 63, 0.15);
+  border-color: var(--brand-primary);
+}
+
+.service-card-image {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+}
+
+.service-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.service-card:hover .service-card-image img {
+  transform: scale(1.1);
+}
+
+.service-card-content {
+  padding: 2rem;
+}
+
+.service-card-content h3 {
+  margin-bottom: 1rem;
+}
+
+.service-card-content p {
+  margin-bottom: 1.5rem;
+}
+
+/* Lien de service avec flèche */
+.service-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--brand-primary);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.service-link:hover {
+  gap: 0.75rem;
+  color: var(--brand-hover);
+}
+
+/* ========================================
+   CARTES DE SERVICES HORIZONTALES
+   ======================================== */
+
+/* Liste des services horizontaux */
+.services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+/* Carte de service horizontale */
+.service-card-horizontal {
+  background: var(--bg-card);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  min-height: 200px;
+}
+
+/* Effet de survol pour les cartes horizontales */
+.service-card-horizontal:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg), 0 0 30px rgba(244, 208, 63, 0.15);
+  border-color: var(--brand-primary);
+}
+
+/* Image de la carte horizontale - côté gauche */
+.service-card-horizontal .service-card-image {
+  flex: 0 0 300px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.service-card-horizontal .service-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.service-card-horizontal:hover .service-card-image img {
+  transform: scale(1.05);
+}
+
+/* Contenu de la carte horizontale - centre */
+.service-card-horizontal .service-card-content {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.service-card-horizontal .service-card-content h3 {
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.service-card-horizontal .service-card-content p {
+  margin-bottom: 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Action de la carte horizontale - côté droit */
+.service-card-horizontal .service-card-action {
+  flex: 0 0 auto;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ========================================
+   9. AVANT/APRÈS
+   ======================================== */
+
+/* Conteneur avant/après */
+.before-after-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--bg-dark);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-light);
+}
+
+.before-after-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+}
+
+.before-after-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.before-after-item img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+
+/* Badges avant/après */
+.before-after-badge {
+  position: absolute;
+  top: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  box-shadow: var(--shadow-md);
+}
+
+.before-badge {
+  left: 1rem;
+  background-color: #e74c3c;
+  color: white;
+}
+
+.after-badge {
+  right: 1rem;
+  background-color: #27ae60;
+  color: white;
+}
+
+.before-after-text {
+  padding: 2rem;
+  text-align: center;
+}
+
+/* ========================================
+   10. SECTION CTA
+   ======================================== */
+
+/* Section call-to-action avec gradient */
+.cta-section {
+  background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+  text-align: center;
+}
+
+.cta-content h2 {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.cta-content p {
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin: 0 auto 2rem;
+}
+
+.cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* ========================================
+   11. FOOTER
+   ======================================== */
+
+/* Footer avec fond très sombre */
+.footer {
+  background-color: var(--bg-dark);
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-logo {
+  margin-bottom: 1.5rem;
+}
+
+.logo-footer {
+  height: 50px;
+  width: auto;
+  max-width: 180px;
+  filter: brightness(1.2) contrast(1.1);
+}
+
+.footer-description {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.footer-availability {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.footer-availability i {
+  color: var(--brand-primary);
+}
+
+.footer-title {
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--border-light);
+}
+
+/* Liens du footer */
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-links a {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-links a::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background-color: var(--brand-primary);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.footer-links a:hover {
+  color: var(--brand-primary);
+  padding-left: 0.5rem;
+}
+
+/* Liste du footer sans liens */
+.footer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-list li {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-list li::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background-color: var(--secondary-olive);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Contact dans le footer */
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.footer-contact-item i {
+  color: var(--brand-primary);
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+.footer-contact-item a {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  transition: color 0.3s ease;
+}
+
+.footer-contact-item a:hover {
+  color: var(--brand-primary);
+}
+
+/* Bas du footer */
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-medium);
+  text-align: center;
+}
+
+.footer-legal {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-legal a {
+  color: var(--text-muted);
+  transition: color 0.3s ease;
+}
+
+.footer-legal a:hover {
+  color: var(--brand-primary);
+}
+
+/* ========================================
+   12. ICÔNES LUCIDE
+   ======================================== */
+
+/* Tailles d'icônes */
+.icon-sm {
+  width: 20px;
+  height: 20px;
+}
+
+.icon-md {
+  width: 24px;
+  height: 24px;
+}
+
+.icon-lg {
+  width: 32px;
+  height: 32px;
+}
+
+/* ========================================
+   13. RESPONSIVE DESIGN
+   ======================================== */
+
+/* Tablettes */
+@media (max-width: 1024px) {
+  .header-cta {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .nav-desktop {
+    display: none;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  /* Cartes horizontales sur tablette */
+  .service-card-horizontal {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .service-card-horizontal .service-card-image {
+    flex: none;
+    width: 100%;
+    height: 200px;
+  }
+
+  .service-card-horizontal .service-card-content {
+    padding: 1.5rem;
+  }
+
+  .service-card-horizontal .service-card-action {
+    padding: 0 1.5rem 1.5rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .section-padding {
+    padding: 3rem 0;
+  }
+
+  .hero-section {
+    min-height: 80vh;
+    padding: 3rem 0;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-buttons .btn-primary,
+  .hero-buttons .btn-secondary {
+    width: 100%;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    padding: 1.25rem 2rem;
+  }
+
+  .logo-header {
+    height: 50px;
+    max-width: 160px;
+  }
+
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Cartes horizontales sur mobile */
+  .service-card-horizontal .service-card-image {
+    height: 180px;
+  }
+
+  .service-card-horizontal .service-card-content {
+    padding: 1rem;
+  }
+
+  .service-card-horizontal .service-card-action {
+    padding: 0 1rem 1rem;
+  }
+
+  .before-after-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .before-after-item img {
+    height: 250px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cta-buttons .btn-primary,
+  .cta-buttons .btn-secondary {
+    width: 100%;
+  }
+}
+
+/* Petits mobiles */
+@media (max-width: 480px) {
+  .trust-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-list li {
+    font-size: 0.9rem;
+  }
+}
+
+/* ========================================
+   14. ANIMATIONS ET TRANSITIONS
+   ======================================== */
+
+/* Transition douce pour tous les éléments interactifs */
+button,
+a,
+.service-card,
+.nav-link {
+  transition: all 0.3s ease;
+}
+
+/* Animation au survol des cartes */
+.service-card,
+.trust-item {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================================
+   15. CARTE DES ZONES D'INTERVENTION
+   ======================================== */
+
+/* Conteneur pour la carte géographique */
+/* Affiche la carte SVG de manière centrée et responsive sans fond */
+.zones-map-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+  padding: 2rem;
+  background: transparent;
+  overflow: hidden; /* Empêche le débordement horizontal */
+  width: 100%;
+}
+
+/* Wrapper pour la carte avec positionnement relatif */
+/* Permet le positionnement absolu des marqueurs et de la zone */
+.map-wrapper {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  width: 100%;
+  z-index: 1;
+  overflow: hidden; /* Empêche le débordement des éléments absolus */
+}
+
+/* Image de la carte */
+/* Traits de la carte en blanc, dimensions et comportement responsive */
+.zones-map {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+  filter: brightness(0) invert(1);
+  border-radius: 10px;
+}
+
+/* Zone d'intervention circulaire */
+/* Affiche visuellement notre rayon de couverture de 50km autour d'Avelin */
+/* Taille proportionnelle à la carte pour maintenir la cohérence géographique */
+.intervention-zone {
+  position: absolute;
+  top: 27%;
+  left: 57%;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(rgba(255, 214, 0, 0.25), rgba(255, 214, 0, 0));
+  border: 2px solid rgba(255, 214, 0, 0.6);
+  box-shadow: 0 0 20px rgba(255, 214, 0, 0.3);
+  pointer-events: none;
+  animation: softGlow 6s infinite ease-in-out;
+  z-index: 2;
+}
+
+/* Animation de pulsation douce pour la zone */
+/* Crée un effet de respiration pour attirer l'attention */
+@keyframes softGlow {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+/* Marqueurs des villes */
+/* Points interactifs positionnés sur les principales villes */
+.city-marker {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: #ffd43b;
+  border: 2px solid #111;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 212, 59, 0.6);
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 3;
+}
+
+/* Marqueur spécial pour la base d'intervention */
+/* Avelin mis en évidence avec une taille et couleur différentes */
+.city-marker.base-marker {
+  background: #ffea7a;
+  border-color: #ffd43b;
+  width: 18px;
+  height: 18px;
+  box-shadow: 0 0 15px rgba(255, 212, 59, 0.9);
+}
+
+/* Effet de survol pour les marqueurs */
+/* Affiche le nom de la ville au survol */
+.city-marker:hover::after {
+  content: attr(data-name);
+  position: absolute;
+  top: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(17, 17, 17, 0.95);
+  color: #ffd43b;
+  padding: 6px 12px;
+  border-radius: 8px;
+  white-space: nowrap;
+  font-size: 0.85em;
+  font-weight: 600;
+  z-index: 4;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Animation de survol pour les marqueurs */
+/* Agrandit légèrement le marqueur au survol */
+.city-marker:hover {
+  transform: translate(-50%, -50%) scale(1.2);
+  box-shadow: 0 0 15px rgba(255, 212, 59, 0.8);
+}
+
+/* Effet de zoom au survol de la carte */
+.zones-map:hover {
+  transform: scale(1.02);
+}
+
+/* Responsive pour tablettes */
+@media (max-width: 768px) {
+  .zones-map-container {
+    padding: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .map-wrapper {
+    max-width: 100%;
+  }
+
+  .zones-map {
+    width: 100%;
+  }
+
+  /* Réduction de la taille des marqueurs sur tablettes */
+  .city-marker {
+    width: 12px;
+    height: 12px;
+  }
+
+  .city-marker.base-marker {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* Zone d'intervention ajustée */
+  .intervention-zone {
+    width: 100%;
+  }
+}
+
+/* Responsive pour mobiles */
+@media (max-width: 480px) {
+  .zones-map-container {
+    padding: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .map-wrapper {
+    max-width: 100%;
+  }
+
+  .zones-map {
+    width: 100%;
+  }
+
+  /* Marqueurs plus petits sur mobile */
+  .city-marker {
+    width: 10px;
+    height: 10px;
+  }
+
+  .city-marker.base-marker {
+    width: 14px;
+    height: 14px;
+  }
+
+  /* Zone d'intervention réduite sur mobile */
+  .intervention-zone {
+    width: 100%;
+  }
+
+  /* Tooltips plus petits sur mobile */
+  .city-marker:hover::after {
+    font-size: 0.75em;
+    padding: 4px 8px;
+    top: -30px;
+  }
+}
+
+/* ========================================
+   16. UTILITAIRES
+   ======================================== */
+
+/* Classes utilitaires pour le texte */
+.text-center {
+  text-align: center;
+}
+
+.text-primary {
+  color: var(--text-primary);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+/* Marges */
+.mb-4 {
+  margin-bottom: 1rem;
+}
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+.mb-8 {
+  margin-bottom: 2rem;
+}
+.mb-12 {
+  margin-bottom: 3rem;
+}
+.mt-4 {
+  margin-top: 1rem;
+}
+.mt-6 {
+  margin-top: 1.5rem;
+}
+.mt-8 {
+  margin-top: 2rem;
+}
+
+/* Effet de glow au survol */
+.glow-on-hover:hover {
+  box-shadow: var(--glow);
+}

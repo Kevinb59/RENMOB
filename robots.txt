@@ -1,0 +1,13 @@
+# Robots.txt pour RENMOB
+
+# Autoriser tous les robots
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://kevinb59.github.io/RENMOB/sitemap.xml
+
+# Bloquer l'accès aux fichiers de configuration
+Disallow: /google-apps-script.js
+Disallow: /*.md$
+

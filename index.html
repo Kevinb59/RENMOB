@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <!-- Configuration de base de la page -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="RENMOB - Entreprise de débarras et nettoyage à Lille et dans les Hauts-de-France. Spécialistes du syndrome de Diogène, nettoyage après succession, débarras maison et appartement."
+    />
+    <meta
+      name="keywords"
+      content="débarras, nettoyage, Lille, Hauts-de-France, syndrome de Diogène, succession, cave, grenier"
+    />
+    <title>
+      RENMOB - Débarras et Nettoyage à Lille et dans les Hauts-de-France
+    </title>
+
+    <!-- Favicons - Ensemble complet pour tous les navigateurs et appareils -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/images/favicon-16x16.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/images/favicon-32x32.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="assets/images/android-chrome-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="assets/images/android-chrome-512x512.png"
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- Icônes Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <!-- En-tête du site avec navigation -->
+    <header id="header" class="header">
+      <div class="container">
+        <div class="header-content">
+          <!-- Logo RENMOB -->
+          <a href="index.html" class="logo">
+            <img
+              src="assets/images/logo-renmob.png"
+              alt="RENMOB Logo"
+              class="logo-header"
+            />
+          </a>
+
+          <!-- Navigation desktop -->
+          <nav class="nav-desktop" id="nav-desktop">
+            <a href="index.html" class="nav-link active">Accueil</a>
+            <a href="services.html" class="nav-link">Services</a>
+            <a href="diogene.html" class="nav-link">Syndrome de Diogène</a>
+            <a href="zones.html" class="nav-link">Zones d'intervention</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+          </nav>
+
+          <!-- Informations de contact et CTA -->
+          <div class="header-cta">
+            <div class="header-cta-vertical">
+              <div class="header-phone">
+                <i data-lucide="phone" class="icon-sm"></i>
+                <a href="tel:0662896049">06 62 89 60 49</a>
+              </div>
+              <a href="contact.html" class="btn-primary btn-compact"
+                >Devis gratuit</a
+              >
+            </div>
+          </div>
+
+          <!-- Bouton menu mobile -->
+          <button
+            class="mobile-menu-btn"
+            id="mobile-menu-btn"
+            aria-label="Menu"
+          >
+            <i data-lucide="menu" class="icon-md"></i>
+          </button>
+        </div>
+
+        <!-- Menu mobile -->
+        <nav class="nav-mobile" id="nav-mobile">
+          <a href="index.html" class="nav-link active">Accueil</a>
+          <a href="services.html" class="nav-link">Services</a>
+          <a href="diogene.html" class="nav-link">Syndrome de Diogène</a>
+          <a href="zones.html" class="nav-link">Zones d'intervention</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+          <div class="nav-mobile-cta">
+            <div class="header-cta-vertical">
+              <div class="header-phone">
+                <i data-lucide="phone" class="icon-sm"></i>
+                <a href="tel:0662896049">06 62 89 60 49</a>
+              </div>
+              <a href="contact.html" class="btn-primary btn-compact"
+                >Devis gratuit</a
+              >
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Contenu principal de la page -->
+    <main>
+      <!-- Section Hero - Bannière principale -->
+      <section class="hero-section">
+        <div class="hero-background">
+          <img
+            src="assets/images/renovation-sinistre-exterieure.jpeg"
+            alt="Chantier RENMOB - Rénovation sinistre"
+            class="hero-image"
+          />
+          <div class="hero-overlay"></div>
+        </div>
+
+        <div class="container">
+          <div class="hero-content">
+            <h1 class="hero-title">
+              Entreprise de débarras et nettoyage à Lille et dans les
+              Hauts-de-France
+            </h1>
+            <p class="body-large hero-text">
+              Bienvenue chez <span class="brand-name">RENMOB</span>,
+              spécialistes du débarras, du nettoyage et des services
+              multitravaux à Lille et dans tout les Hauts-de-France. Nous
+              intervenons pour vider, nettoyer, désinfecter et remettre en état
+              tout type de logement ou d'espace.
+            </p>
+
+            <!-- Liste des services principaux -->
+            <ul class="hero-list">
+              <li>
+                <i data-lucide="check-circle" class="icon-sm"></i>
+                <span>Débarras maison, appartement, cave et grenier</span>
+              </li>
+              <li>
+                <i data-lucide="check-circle" class="icon-sm"></i>
+                <span>Nettoyage après succession, sinistre ou chantier</span>
+              </li>
+              <li>
+                <i data-lucide="check-circle" class="icon-sm"></i>
+                <span>Intervention spécialisée en syndrome de Diogène</span>
+              </li>
+              <li>
+                <i data-lucide="check-circle" class="icon-sm"></i>
+                <span>Entretien extérieur et nettoyage de toitures</span>
+              </li>
+              <li>
+                <i data-lucide="check-circle" class="icon-sm"></i>
+                <span>Devis gratuit et intervention rapide</span>
+              </li>
+            </ul>
+
+            <p class="body-medium hero-location">
+              Basés dans la métropole lilloise, nous couvrons toute la région
+              des Hauts-de-France.
+            </p>
+
+            <!-- Boutons d'action principaux -->
+            <div class="hero-buttons">
+              <a href="contact.html" class="btn-primary btn-lg">
+                <span>Demandez votre devis gratuit</span>
+                <i data-lucide="arrow-right" class="icon-sm"></i>
+              </a>
+              <a href="tel:0662896049" class="btn-secondary btn-lg">
+                <i data-lucide="phone" class="icon-sm"></i>
+                <span>Appeler maintenant</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section des indicateurs de confiance -->
+      <section class="section-padding bg-card">
+        <div class="container">
+          <div class="trust-grid">
+            <!-- Indicateur 1: Intervention rapide -->
+            <div class="trust-item">
+              <div class="trust-icon">
+                <i data-lucide="clock" class="icon-lg"></i>
+              </div>
+              <h3 class="heading-6">Intervention rapide</h3>
+              <p class="caption">24H/48H</p>
+            </div>
+
+            <!-- Indicateur 2: Assuré & certifié -->
+            <div class="trust-item">
+              <div class="trust-icon">
+                <i data-lucide="shield" class="icon-lg"></i>
+              </div>
+              <h3 class="heading-6">Assuré & certifié</h3>
+              <p class="caption">100% COUVERT</p>
+            </div>
+
+            <!-- Indicateur 3: Équipe experte -->
+            <div class="trust-item">
+              <div class="trust-icon">
+                <i data-lucide="users" class="icon-lg"></i>
+              </div>
+              <h3 class="heading-6">Équipe experte</h3>
+              <p class="caption">PROFESSIONNELS</p>
+            </div>
+
+            <!-- Indicateur 4: Satisfaction garantie -->
+            <div class="trust-item">
+              <div class="trust-icon">
+                <i data-lucide="star" class="icon-lg"></i>
+              </div>
+              <h3 class="heading-6">Satisfaction garantie</h3>
+              <p class="caption">CLIENT SATISFAIT</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section aperçu des services -->
+      <section class="section-padding bg-page">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="heading-2">Nos Services</h2>
+            <p class="body-large">
+              Des solutions complètes pour tous vos besoins de débarras,
+              nettoyage et remise en état.
+            </p>
+          </div>
+
+          <!-- Liste des services horizontaux -->
+          <div class="services-list">
+            <!-- Service 1: Débarras maison -->
+            <div class="service-card-horizontal">
+              <div class="service-card-image">
+                <img
+                  src="assets/images/debaras-maison-1.jpeg"
+                  alt="Débarras maison & appartement"
+                />
+              </div>
+              <div class="service-card-content">
+                <h3 class="heading-5">Débarras maison & appartement</h3>
+                <p class="body-small">
+                  Débarras complet ou partiel, tri, recyclage et valorisation
+                  des objets. Nous vous rendons un logement vide, propre et prêt
+                  à être vendu, loué ou rénové.
+                </p>
+              </div>
+              <div class="service-card-action">
+                <a href="services.html" class="service-link">
+                  <span>En savoir plus</span>
+                  <i data-lucide="arrow-right" class="icon-sm"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Service 2: Débarras cave/grenier -->
+            <div class="service-card-horizontal">
+              <div class="service-card-image">
+                <img
+                  src="assets/images/debaras-grenier.jpeg"
+                  alt="Débarras cave, grenier et garage"
+                />
+              </div>
+              <div class="service-card-content">
+                <h3 class="heading-5">Débarras cave, grenier et garage</h3>
+                <p class="body-small">
+                  Nous désencombrons tous types de pièces. Évacuation de
+                  meubles, cartons, électroménagers et objets lourds ou
+                  volumineux.
+                </p>
+              </div>
+              <div class="service-card-action">
+                <a href="services.html" class="service-link">
+                  <span>En savoir plus</span>
+                  <i data-lucide="arrow-right" class="icon-sm"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Service 3: Nettoyage après succession -->
+            <div class="service-card-horizontal">
+              <div class="service-card-image">
+                <img
+                  src="assets/images/renovation-sinistre-exterieure.jpeg"
+                  alt="Nettoyage après succession ou sinistre"
+                />
+              </div>
+              <div class="service-card-content">
+                <h3 class="heading-5">
+                  Nettoyage après succession ou sinistre
+                </h3>
+                <p class="body-small">
+                  Nous intervenons après décès, dégât des eaux, incendie ou
+                  chantier. Rendu habitable et remise en état complète.
+                </p>
+              </div>
+              <div class="service-card-action">
+                <a href="services.html" class="service-link">
+                  <span>En savoir plus</span>
+                  <i data-lucide="arrow-right" class="icon-sm"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Service 4: Syndrome de Diogène -->
+            <div class="service-card-horizontal">
+              <div class="service-card-image">
+                <img
+                  src="assets/images/nettoyage-diogene-3.jpeg"
+                  alt="Syndrome de Diogène"
+                />
+              </div>
+              <div class="service-card-content">
+                <h3 class="heading-5">Syndrome de Diogène</h3>
+                <p class="body-small">
+                  Intervention spécialisée, respectueuse et discrète. Tri,
+                  désencombrement, désinfection et nettoyage complet du
+                  logement.
+                </p>
+              </div>
+              <div class="service-card-action">
+                <a href="diogene.html" class="service-link">
+                  <span>En savoir plus</span>
+                  <i data-lucide="arrow-right" class="icon-sm"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Service 5: Entretien extérieur -->
+            <div class="service-card-horizontal">
+              <div class="service-card-image">
+                <img
+                  src="assets/images/nettoyage-toiture.jpeg"
+                  alt="Entretien extérieur & toitures"
+                />
+              </div>
+              <div class="service-card-content">
+                <h3 class="heading-5">Entretien extérieur & toitures</h3>
+                <p class="body-small">
+                  Nettoyage et démoussage de toitures, entretien de jardins et
+                  espaces verts.
+                </p>
+              </div>
+              <div class="service-card-action">
+                <a href="services.html" class="service-link">
+                  <span>En savoir plus</span>
+                  <i data-lucide="arrow-right" class="icon-sm"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bouton pour voir tous les services -->
+          <div class="section-cta">
+            <a href="services.html" class="btn-primary btn-lg">
+              <span>Voir tous nos services</span>
+              <i data-lucide="arrow-right" class="icon-sm"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section Avant/Après -->
+      <section class="section-padding bg-card">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="heading-2">Avant / Après</h2>
+            <p class="body-large">
+              Découvrez la transformation de nos interventions
+            </p>
+          </div>
+
+          <!-- Comparaison Avant/Après -->
+          <div class="before-after-container">
+            <div class="before-after-grid">
+              <div class="before-after-item">
+                <img
+                  src="assets/images/debaras-maison-1.jpeg"
+                  alt="Avant débarras"
+                />
+                <div class="before-after-badge before-badge">Avant</div>
+              </div>
+              <div class="before-after-item">
+                <img
+                  src="assets/images/debaras-apres.jpeg"
+                  alt="Après débarras"
+                />
+                <div class="before-after-badge after-badge">Après</div>
+              </div>
+            </div>
+            <div class="before-after-text">
+              <h3 class="heading-5">
+                Débarras et nettoyage complet - Transformation spectaculaire
+              </h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section Call-to-Action finale -->
+      <section class="section-padding cta-section">
+        <div class="container">
+          <div class="cta-content">
+            <h2 class="heading-2">Besoin d'un devis gratuit ?</h2>
+            <p class="body-large">
+              Contactez-nous dès maintenant pour une évaluation gratuite et sans
+              engagement de votre projet.
+            </p>
+            <div class="cta-buttons">
+              <a href="contact.html" class="btn-primary btn-lg">
+                <span>Demander un devis</span>
+                <i data-lucide="arrow-right" class="icon-sm"></i>
+              </a>
+              <a
+                href="tel:0662896049"
+                class="btn-secondary btn-lg btn-secondary-light"
+              >
+                <i data-lucide="phone" class="icon-sm"></i>
+                <span>06 62 89 60 49</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Pied de page -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- Colonne 1: Informations entreprise -->
+          <div class="footer-col">
+            <div class="footer-logo">
+              <img
+                src="assets/images/logo-renmob.png"
+                alt="RENMOB Logo"
+                class="logo-footer"
+              />
+            </div>
+            <p class="body-small footer-description">
+              Spécialistes du débarras, du nettoyage et des services
+              multitravaux à Lille et dans tout les Hauts-de-France.
+            </p>
+            <div class="footer-availability">
+              <i data-lucide="clock" class="icon-sm"></i>
+              <span>Disponible 7j/7</span>
+            </div>
+          </div>
+
+          <!-- Colonne 2: Services -->
+          <div class="footer-col">
+            <h3 class="heading-6 footer-title">Nos Services</h3>
+            <ul class="footer-links">
+              <li><a href="services.html">Débarras maison/appartement</a></li>
+              <li><a href="services.html">Débarras cave/grenier/garage</a></li>
+              <li>
+                <a href="services.html">Nettoyage après succession/sinistre</a>
+              </li>
+              <li><a href="diogene.html">Syndrome de Diogène</a></li>
+              <li>
+                <a href="services.html">Entretien extérieurs & toitures</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Colonne 3: Zones d'intervention -->
+          <div class="footer-col">
+            <h3 class="heading-6 footer-title">Zones d'intervention</h3>
+            <ul class="footer-list">
+              <li>Aisne</li>
+              <li>Nord</li>
+              <li>Oise</li>
+              <li>Pas-de-Calais</li>
+              <li>Picardie</li>
+            </ul>
+          </div>
+
+          <!-- Colonne 4: Contact -->
+          <div class="footer-col">
+            <h3 class="heading-6 footer-title">Contact</h3>
+            <div class="footer-contact">
+              <div class="footer-contact-item">
+                <i data-lucide="map-pin" class="icon-sm"></i>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=9+All%C3%A9e+de+la+Plaquette+Avelin+59710"
+                  target="_blank"
+                  rel="noopener"
+                  >9 Allée de la Plaquette - Avelin 59710</a
+                >
+              </div>
+              <div class="footer-contact-item">
+                <i data-lucide="phone" class="icon-sm"></i>
+                <a href="tel:0662896049">06 62 89 60 49</a>
+              </div>
+              <div class="footer-contact-item">
+                <i data-lucide="mail" class="icon-sm"></i>
+                <a href="mailto:ren.mob@gmail.com">ren.mob@gmail.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Copyright et mentions légales -->
+        <div class="footer-bottom">
+          <p class="caption">
+            © 2024 <span class="brand-name">RENMOB</span>. Tous droits réservés.
+          </p>
+          <div class="footer-legal">
+            <a href="mentions-legales.html" class="caption">Mentions légales</a>
+            <a href="politique-confidentialite.html" class="caption"
+              >Politique de confidentialité</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript principal -->
+    <script src="js/app.js"></script>
+  </body>
+</html>

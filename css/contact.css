@@ -1,0 +1,461 @@
+/**
+ * RENMOB - Styles CSS pour la page Contact
+ * Styles spécifiques au formulaire et aux cartes de contact
+ */
+
+/* ========================================
+   1. GRILLE DE CONTACT RAPIDE
+   ======================================== */
+
+/* Grille responsive des cartes de contact rapide */
+.contact-quick-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+/* Carte de contact rapide avec effet hover */
+.contact-quick-card {
+  background: linear-gradient(135deg, #2c2c2c 0%, #222222 100%);
+  border: 2px solid var(--border-medium);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.4s ease;
+  box-shadow: var(--shadow-md);
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+/* Carte cliquable avec effets spéciaux */
+.contact-card-link {
+  cursor: pointer;
+}
+
+.contact-card-link:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.contact-quick-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--brand-primary);
+}
+
+/* Icône dans les cartes de contact */
+.contact-quick-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+/* Variantes de couleur pour les différentes cartes */
+.phone-card {
+  background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+}
+
+.phone-card .contact-quick-icon {
+  background-color: rgba(244, 208, 63, 0.15);
+}
+
+.phone-card .contact-quick-icon i {
+  color: var(--brand-primary);
+}
+
+.whatsapp-card {
+  background: linear-gradient(135deg, #1e7e34 0%, #155724 100%);
+}
+
+.whatsapp-card .contact-quick-icon {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.whatsapp-card .contact-quick-icon i,
+.whatsapp-card h3,
+.whatsapp-card .contact-quick-link,
+.whatsapp-card .caption {
+  color: #ffffff;
+}
+
+.email-card .contact-quick-icon {
+  background-color: rgba(244, 208, 63, 0.15);
+}
+
+.email-card .contact-quick-icon i {
+  color: var(--brand-primary);
+}
+
+.address-card .contact-quick-icon {
+  background-color: rgba(244, 208, 63, 0.15);
+}
+
+.address-card .contact-quick-icon i {
+  color: var(--brand-primary);
+}
+
+/* Lien de contact */
+.contact-quick-link {
+  display: block;
+  color: var(--brand-primary);
+  font-weight: 600;
+  font-size: 1.125rem;
+  margin: 1rem 0;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.contact-quick-link:hover {
+  color: var(--brand-hover);
+  text-shadow: 0 0 8px rgba(244, 208, 63, 0.5);
+  text-decoration: none;
+}
+
+.whatsapp-card .contact-quick-link {
+  color: #ffffff;
+}
+
+.whatsapp-card .contact-quick-link:hover {
+  color: #d4edda;
+}
+
+/* ========================================
+   2. LAYOUT DU FORMULAIRE
+   ======================================== */
+
+/* Layout en 2 colonnes: formulaire + infos */
+.contact-form-layout {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+/* Conteneur du formulaire */
+.contact-form-container {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 3rem;
+  box-shadow: var(--shadow-md);
+}
+
+/* Conteneur des informations */
+.contact-info-container {
+  position: sticky;
+  top: 120px;
+}
+
+/* ========================================
+   3. FORMULAIRE
+   ======================================== */
+
+/* Formulaire principal */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Ligne de formulaire avec 2 colonnes */
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+/* Groupe de champ de formulaire */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Label de formulaire */
+.form-label {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.9375rem;
+}
+
+/* Input de formulaire */
+.form-input,
+.form-select,
+.form-textarea {
+  background-color: var(--bg-page);
+  border: 2px solid var(--border-medium);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 3px rgba(244, 208, 63, 0.1);
+}
+
+/* Placeholder */
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--text-muted);
+}
+
+/* Select spécifique */
+.form-select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23F4D03F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 20px;
+  padding-right: 3rem;
+}
+
+/* Textarea */
+.form-textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+/* Bouton de soumission */
+.form-submit {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+/* ========================================
+   4. MESSAGES DE SUCCÈS ET D'ERREUR
+   ======================================== */
+
+/* Message de succès (caché par défaut) */
+.form-success-message {
+  display: none;
+  background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+  color: white;
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  text-align: center;
+  animation: slideInDown 0.5s ease;
+}
+
+.form-success-message.visible {
+  display: block;
+}
+
+.success-icon {
+  width: 80px;
+  height: 80px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+
+.success-icon i {
+  color: white;
+}
+
+.form-success-message h3,
+.form-success-message p {
+  color: white;
+}
+
+.form-success-message p {
+  margin-top: 1rem;
+}
+
+/* Message d'erreur (caché par défaut) */
+.form-error-message {
+  display: none;
+  background-color: rgba(231, 76, 60, 0.1);
+  border: 2px solid #e74c3c;
+  color: #e74c3c;
+  padding: 1rem;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.form-error-message.visible {
+  display: block;
+}
+
+/* Cacher le formulaire quand le message de succès est affiché */
+.contact-form.hidden {
+  display: none;
+}
+
+/* ========================================
+   5. CARTES D'INFORMATION
+   ======================================== */
+
+/* Carte d'information */
+.info-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.info-card:hover {
+  border-color: var(--brand-primary);
+  box-shadow: var(--shadow-md);
+}
+
+/* Header de la carte d'info */
+.info-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.info-card-header i {
+  color: var(--brand-primary);
+  flex-shrink: 0;
+}
+
+.info-card-header h3 {
+  margin: 0;
+}
+
+/* Contenu de la carte */
+.info-card-content p {
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
+.info-card-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Liste dans les cartes d'info */
+.info-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.info-list li {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.info-list li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background-color: var(--brand-primary);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Carte d'urgence avec style spécial */
+.urgency-card {
+  background: linear-gradient(135deg, #9b8b5e 0%, #8a7a50 100%);
+  border-color: var(--secondary-olive);
+}
+
+.urgency-card h3,
+.urgency-card p {
+  color: var(--text-primary);
+}
+
+.urgency-card .info-card-header i {
+  color: var(--brand-primary);
+}
+
+.urgency-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.urgency-buttons .btn-primary,
+.urgency-buttons .btn-secondary {
+  width: 100%;
+}
+
+/* ========================================
+   6. ANIMATIONS
+   ======================================== */
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================================
+   7. RESPONSIVE
+   ======================================== */
+
+/* Tablettes */
+@media (max-width: 1024px) {
+  .contact-form-layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .contact-info-container {
+    position: static;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .contact-quick-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .contact-form-container {
+    padding: 2rem 1.5rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .urgency-buttons {
+    flex-direction: column;
+  }
+
+  .info-card {
+    padding: 1.5rem;
+  }
+}
+
+/* Petits mobiles */
+@media (max-width: 480px) {
+  .contact-form-container {
+    padding: 1.5rem 1rem;
+  }
+}

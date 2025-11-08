@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="RENMOB intervient à Lille, Roubaix, Tourcoing, Seclin, Douai, Valenciennes et dans tout le Nord. Intervention rapide 24h/48h."
+    />
+    <title>Zones d'intervention - RENMOB | Lille et le Nord</title>
+
+    <!-- Favicons - Ensemble complet pour tous les navigateurs et appareils -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/images/favicon-16x16.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/images/favicon-32x32.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="assets/images/android-chrome-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="assets/images/android-chrome-512x512.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <!-- Header -->
+    <header id="header" class="header">
+      <div class="container">
+        <div class="header-content">
+          <a href="index.html" class="logo">
+            <img
+              src="assets/images/logo-renmob.png"
+              alt="RENMOB Logo"
+              class="logo-header"
+            />
+          </a>
+          <nav class="nav-desktop" id="nav-desktop">
+            <a href="index.html" class="nav-link">Accueil</a>
+            <a href="services.html" class="nav-link">Services</a>
+            <a href="diogene.html" class="nav-link">Syndrome de Diogène</a>
+            <a href="zones.html" class="nav-link active"
+              >Zones d'intervention</a
+            >
+            <a href="contact.html" class="nav-link">Contact</a>
+          </nav>
+          <div class="header-cta">
+            <div class="header-cta-vertical">
+              <div class="header-phone">
+                <i data-lucide="phone" class="icon-sm"></i>
+                <a href="tel:0662896049">06 62 89 60 49</a>
+              </div>
+              <a href="contact.html" class="btn-primary btn-compact"
+                >Devis gratuit</a
+              >
+            </div>
+          </div>
+          <button
+            class="mobile-menu-btn"
+            id="mobile-menu-btn"
+            aria-label="Menu"
+          >
+            <i data-lucide="menu" class="icon-md"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Menu mobile (en dehors du header pour éviter les conflits de positionnement) -->
+    <nav class="nav-mobile" id="nav-mobile">
+      <a href="index.html" class="nav-link">Accueil</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="diogene.html" class="nav-link">Syndrome de Diogène</a>
+      <a href="zones.html" class="nav-link active">Zones d'intervention</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <div class="nav-mobile-cta">
+        <div class="header-cta-vertical">
+          <div class="header-phone">
+            <i data-lucide="phone" class="icon-sm"></i>
+            <a href="tel:0662896049">06 62 89 60 49</a>
+          </div>
+          <a href="contact.html" class="btn-primary btn-compact"
+            >Devis gratuit</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <!-- Hero Section -->
+      <!-- Section d'en-tête avec titre, description et carte des Hauts-de-France -->
+      <section class="section-padding bg-page">
+        <div class="container">
+          <div class="section-header">
+            <h1 class="heading-2">Zones d'intervention</h1>
+            <p class="body-large">
+              <span class="brand-name">RENMOB</span> intervient dans toute la
+              région Hauts-de-France pour vos projets de débarras, nettoyage et
+              remise en état. Découvrez notre couverture géographique complète.
+            </p>
+          </div>
+
+          <!-- Carte géographique des Hauts-de-France -->
+          <!-- Affiche visuellement notre zone de couverture dans la région -->
+          <div class="zones-map-container">
+            <div class="map-wrapper">
+              <img
+                src="assets/images/carte-hdf.svg"
+                alt="Carte des zones d'intervention RENMOB dans les Hauts-de-France"
+                class="zones-map"
+              />
+
+              <!-- Zone d'intervention circulaire -->
+              <!-- Définit visuellement notre rayon de couverture de 50km -->
+              <div class="intervention-zone"></div>
+
+              <!-- Marqueurs des principales villes -->
+              <!-- Positionnés précisément sur les villes clés de notre zone -->
+              <!-- Nord (59) -->
+              <div
+                class="city-marker"
+                id="marker-lille"
+                style="top: 21%; left: 58%"
+                data-name="Lille"
+              ></div>
+              <div
+                class="city-marker"
+                id="marker-roubaix"
+                style="top: 19%; left: 61%"
+                data-name="Roubaix"
+              ></div>
+              <div
+                class="city-marker"
+                id="marker-tourcoing"
+                style="top: 17%; left: 60%"
+                data-name="Tourcoing"
+              ></div>
+              <div
+                class="city-marker"
+                id="marker-seclin"
+                style="top: 25%; left: 56%"
+                data-name="Seclin"
+              ></div>
+              <div
+                class="city-marker"
+                id="marker-douai"
+                style="top: 32%; left: 58%"
+                data-name="Douai"
+              ></div>
+              <div
+                class="city-marker"
+                id="marker-valenciennes"
+                style="top: 31%; left: 72%"
+                data-name="Valenciennes"
+              ></div>
+              <div
+                class="city-marker"
+                id="marker-cambrai"
+                style="top: 39%; left: 63%"
+                data-name="Cambrai"
+              ></div>
+              <div
+                class="city-marker"
+                id="marker-avesnes"
+                style="top: 42%; left: 85%"
+                data-name="Avesnes-sur-Helpe"
+              ></div>
+              <div
+                class="city-marker"
+                id="marker-hazebrouck"
+                style="top: 15%; left: 43%"
+                data-name="Hazebrouck"
+              ></div>
+              <div
+                class="city-marker"
+                id="marker-dunkerque"
+                style="top: 3%; left: 36%"
+                data-name="Dunkerque"
+              ></div>
+              <div
+                class="city-marker"
+                id="marker-armentieres"
+                style="top: 18%; left: 51%"
+                data-name="Armentières"
+              ></div>
+              <div
+                class="city-marker"
+                id="marker-villeneuve"
+                style="top: 21%; left: 61%"
+                data-name="Villeneuve-d’Ascq"
+              ></div>
+
+              <!-- Pas-de-Calais (62) -->
+              <div
+                class="city-marker"
+                id="marker-arras"
+                style="top: 35%; left: 47%"
+                data-name="Arras"
+              ></div>
+              <div
+                class="city-marker"
+                id="marker-lens"
+                style="top: 29%; left: 49%"
+                data-name="Lens"
+              ></div>
+              <div
+                class="city-marker"
+                id="marker-bethune"
+                style="top: 25%; left: 44%"
+                data-name="Béthune"
+              ></div>
+              <div
+                class="city-marker"
+                id="marker-saintomer"
+                style="top: 15%; left: 32%"
+                data-name="Saint-Omer"
+              ></div>
+              <div
+                class="city-marker"
+                id="marker-calais"
+                style="top: 7%; left: 18%"
+                data-name="Calais"
+              ></div>
+              <div
+                class="city-marker"
+                id="marker-boulogne"
+                style="top: 17%; left: 10%"
+                data-name="Boulogne-sur-Mer"
+              ></div>
+              <div
+                class="city-marker"
+                id="marker-montreuil"
+                style="top: 27%; left: 15%"
+                data-name="Montreuil"
+              ></div>
+
+              <!-- Somme (80) -->
+              <div
+                class="city-marker"
+                id="marker-amiens"
+                style="top: 50%; left: 32%"
+                data-name="Amiens"
+              ></div>
+              <div
+                class="city-marker"
+                id="marker-abbeville"
+                style="top: 42%; left: 18%"
+                data-name="Abbeville"
+              ></div>
+              <div
+                class="city-marker"
+                id="marker-montdidier"
+                style="top: 62%; left: 40%"
+                data-name="Montdidier"
+              ></div>
+              <div
+                class="city-marker"
+                id="marker-peronne"
+                style="top: 50%; left: 53%"
+                data-name="Péronne"
+              ></div>
+
+              <!-- Oise (60) -->
+              <div
+                class="city-marker"
+                id="marker-beauvais"
+                style="top: 70%; left: 25%"
+                data-name="Beauvais"
+              ></div>
+              <div
+                class="city-marker"
+                id="marker-clermont"
+                style="top: 73%; left: 35%"
+                data-name="Clermont"
+              ></div>
+              <div
+                class="city-marker"
+                id="marker-compiegne"
+                style="top: 71%; left: 49%"
+                data-name="Compiègne"
+              ></div>
+              <div
+                class="city-marker"
+                id="marker-senlis"
+                style="top: 80%; left: 42%"
+                data-name="Senlis"
+              ></div>
+
+              <!-- Aisne (02) -->
+              <div
+                class="city-marker"
+                id="marker-saintquentin"
+                style="top: 53%; left: 64%"
+                data-name="Saint-Quentin"
+              ></div>
+              <div
+                class="city-marker"
+                id="marker-laon"
+                style="top: 65%; left: 76%"
+                data-name="Laon"
+              ></div>
+              <div
+                class="city-marker"
+                id="marker-soissons"
+                style="top: 73%; left: 64%"
+                data-name="Soissons"
+              ></div>
+              <div
+                class="city-marker"
+                id="marker-chateauthierry"
+                style="top: 87%; left: 67%"
+                data-name="Château-Thierry"
+              ></div>
+
+              <!-- Marqueur de base d'intervention -->
+              <!-- Avelin, notre centre d'opération, mis en évidence -->
+              <div
+                class="city-marker base-marker"
+                id="marker-avelin"
+                style="top: 27%; left: 57%"
+                data-name="Avelin (Base d'intervention)"
+              ></div>
+            </div>
+          </div>
+
+          <!-- Zones d'intervention détaillées -->
+          <!-- Présentation des principales zones avec délais et boutons d'action -->
+          <div class="trust-grid">
+            <div class="trust-item">
+              <div class="trust-icon">
+                <i data-lucide="map-pin" class="icon-lg"></i>
+              </div>
+              <h3 class="heading-6">Lille et métropole lilloise</h3>
+              <p class="body-small">Intervention sous 24h-48h</p>
+              <a href="contact.html" class="btn-secondary mt-4"
+                >Demander un devis</a
+              >
+            </div>
+
+            <div class="trust-item">
+              <div class="trust-icon">
+                <i data-lucide="map-pin" class="icon-lg"></i>
+              </div>
+              <h3 class="heading-6">Seclin et Pévèle</h3>
+              <p class="body-small">Intervention sous 24h-48h</p>
+              <a href="contact.html" class="btn-secondary mt-4"
+                >Demander un devis</a
+              >
+            </div>
+
+            <div class="trust-item">
+              <div class="trust-icon">
+                <i data-lucide="map-pin" class="icon-lg"></i>
+              </div>
+              <h3 class="heading-6">Douai et Douaisis</h3>
+              <p class="body-small">Intervention sous 24h-48h</p>
+              <a href="contact.html" class="btn-secondary mt-4"
+                >Demander un devis</a
+              >
+            </div>
+
+            <div class="trust-item">
+              <div class="trust-icon">
+                <i data-lucide="map-pin" class="icon-lg"></i>
+              </div>
+              <h3 class="heading-6">Valenciennes, Arras et Lens</h3>
+              <p class="body-small">Intervention sous 24h-48h</p>
+              <a href="contact.html" class="btn-secondary mt-4"
+                >Demander un devis</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Délais d'intervention -->
+      <section class="section-padding bg-card">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="heading-2">Délais d'intervention</h2>
+          </div>
+
+          <div class="trust-grid">
+            <div class="service-card">
+              <div class="service-card-content text-center">
+                <div class="trust-icon" style="margin: 0 auto 1.5rem">
+                  <i data-lucide="zap" class="icon-lg"></i>
+                </div>
+                <h3 class="heading-5">Urgence</h3>
+                <p
+                  class="body-large mb-4"
+                  style="color: var(--brand-primary); font-weight: 700"
+                >
+                  Sous 24h
+                </p>
+                <p class="body-small">
+                  Situations d'urgence et interventions prioritaires
+                </p>
+              </div>
+            </div>
+
+            <div class="service-card">
+              <div class="service-card-content text-center">
+                <div class="trust-icon" style="margin: 0 auto 1.5rem">
+                  <i data-lucide="clock" class="icon-lg"></i>
+                </div>
+                <h3 class="heading-5">Standard</h3>
+                <p class="body-large mb-4" style="font-weight: 700">
+                  24h - 48h
+                </p>
+                <p class="body-small">
+                  Interventions planifiées dans les délais habituels
+                </p>
+              </div>
+            </div>
+
+            <div class="service-card">
+              <div class="service-card-content text-center">
+                <div class="trust-icon" style="margin: 0 auto 1.5rem">
+                  <i data-lucide="calendar" class="icon-lg"></i>
+                </div>
+                <h3 class="heading-5">Programmé</h3>
+                <p class="body-large mb-4" style="font-weight: 700">
+                  Sur rendez-vous
+                </p>
+                <p class="body-small">
+                  Interventions planifiées selon vos disponibilités
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="section-padding cta-section">
+        <div class="container">
+          <div class="cta-content">
+            <h2 class="heading-2">Besoin d'un débarras urgent ?</h2>
+            <p class="body-large">
+              Contactez-nous pour un devis gratuit et rapide. Intervention dans
+              toute notre zone de couverture.
+            </p>
+            <div class="cta-buttons">
+              <a href="contact.html" class="btn-primary btn-lg">
+                <span>Demander un devis</span>
+                <i data-lucide="arrow-right" class="icon-sm"></i>
+              </a>
+              <a
+                href="tel:0662896049"
+                class="btn-secondary btn-lg btn-secondary-light"
+              >
+                <i data-lucide="phone" class="icon-sm"></i>
+                <span>06 62 89 60 49</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <div class="footer-logo">
+              <img
+                src="assets/images/logo-renmob.png"
+                alt="RENMOB Logo"
+                class="logo-footer"
+              />
+            </div>
+            <p class="body-small footer-description">
+              Spécialistes du débarras, du nettoyage et des services
+              multitravaux à Lille et dans tout les Hauts-de-France.
+            </p>
+            <div class="footer-availability">
+              <i data-lucide="clock" class="icon-sm"></i>
+              <span>Disponible 7j/7</span>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h3 class="heading-6 footer-title">Nos Services</h3>
+            <ul class="footer-links">
+              <li><a href="services.html">Débarras maison/appartement</a></li>
+              <li><a href="services.html">Débarras cave/grenier/garage</a></li>
+              <li>
+                <a href="services.html">Nettoyage après succession/sinistre</a>
+              </li>
+              <li><a href="diogene.html">Syndrome de Diogène</a></li>
+              <li>
+                <a href="services.html">Entretien extérieurs & toitures</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3 class="heading-6 footer-title">Zones d'intervention</h3>
+            <ul class="footer-list">
+              <li>Aisne</li>
+              <li>Nord</li>
+              <li>Oise</li>
+              <li>Pas-de-Calais</li>
+              <li>Picardie</li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3 class="heading-6 footer-title">Contact</h3>
+            <div class="footer-contact">
+              <div class="footer-contact-item">
+                <i data-lucide="map-pin" class="icon-sm"></i>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=9+All%C3%A9e+de+la+Plaquette+Avelin+59710"
+                  target="_blank"
+                  rel="noopener"
+                  >9 Allée de la Plaquette - Avelin 59710</a
+                >
+              </div>
+              <div class="footer-contact-item">
+                <i data-lucide="phone" class="icon-sm"></i>
+                <a href="tel:0662896049">06 62 89 60 49</a>
+              </div>
+              <div class="footer-contact-item">
+                <i data-lucide="mail" class="icon-sm"></i>
+                <a href="mailto:ren.mob@gmail.com">ren.mob@gmail.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p class="caption">
+            © 2024 <span class="brand-name">RENMOB</span>. Tous droits réservés.
+          </p>
+          <div class="footer-legal">
+            <a href="mentions-legales.html" class="caption">Mentions légales</a>
+            <a href="politique-confidentialite.html" class="caption"
+              >Politique de confidentialité</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>
