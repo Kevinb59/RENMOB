@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Découvrez tous les services RENMOB : débarras, nettoyage après succession, syndrome de Diogène, entretien extérieur à Lille et dans le Nord."
+      content="Découvrez les réalisations RENMOB avant/après : débarras, nettoyage et remises en état impressionnantes dans toute la région Hauts-de-France."
     />
-    <title>Nos Services - RENMOB | Débarras et Nettoyage Lille</title>
+    <title>Nos réalisations - RENMOB | Avant / Après</title>
 
-    <!-- Favicons - Ensemble complet pour tous les navigateurs et appareils -->
+    <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
     <link
       rel="icon"
@@ -40,17 +40,19 @@
       sizes="512x512"
       href="assets/images/android-chrome-512x512.png"
     />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
+
     <link rel="stylesheet" href="css/styles.css" />
     <script src="https://unpkg.com/lucide@latest"></script>
   </head>
   <body>
-    <!-- Header -->
+    <!-- En-tête global -->
     <header id="header" class="header">
       <div class="container">
         <div class="header-content">
@@ -63,10 +65,12 @@
           </a>
           <nav class="nav-desktop" id="nav-desktop">
             <a href="index.html" class="nav-link">Accueil</a>
-            <a href="services.html" class="nav-link active">Services</a>
+            <a href="services.html" class="nav-link">Services</a>
             <a href="diogene.html" class="nav-link">Syndrome de Diogène</a>
             <a href="zones.html" class="nav-link">Zones d'intervention</a>
-            <a href="realisations.html" class="nav-link">Nos réalisations</a>
+            <a href="realisations.html" class="nav-link active"
+              >Nos réalisations</a
+            >
             <a href="contact.html" class="nav-link">Contact</a>
           </nav>
           <div class="header-cta">
@@ -90,10 +94,12 @@
         </div>
         <nav class="nav-mobile" id="nav-mobile">
           <a href="index.html" class="nav-link">Accueil</a>
-          <a href="services.html" class="nav-link active">Services</a>
+          <a href="services.html" class="nav-link">Services</a>
           <a href="diogene.html" class="nav-link">Syndrome de Diogène</a>
           <a href="zones.html" class="nav-link">Zones d'intervention</a>
-          <a href="realisations.html" class="nav-link">Nos réalisations</a>
+          <a href="realisations.html" class="nav-link active"
+            >Nos réalisations</a
+          >
           <a href="contact.html" class="nav-link">Contact</a>
           <div class="nav-mobile-cta">
             <div class="header-cta-vertical">
@@ -111,45 +117,47 @@
     </header>
 
     <main>
-      <!-- Hero Section -->
+      <!-- Bandeau de présentation -->
       <section class="section-padding bg-page">
         <div class="container">
           <div class="section-header">
-            <h1 class="heading-2">Nos Services de Débarras et Nettoyage</h1>
+            <h1 class="heading-2">Nos réalisations avant / après</h1>
             <p class="body-large">
-              <span class="brand-name">RENMOB</span> vous accompagne dans tous
-              vos projets de débarras, nettoyage et remise en état. Des
-              interventions professionnelles adaptées à vos besoins spécifiques
-              dans toute la région Hauts-de-France.
+              Chaque mission est unique. Découvrez une sélection de
+              transformations impressionnantes réalisées par
+              <span class="brand-name">RENMOB</span> : débarras complets,
+              nettoyage spécialisé, remises en état méticuleuses.
             </p>
           </div>
         </div>
       </section>
 
-      <!-- Services Détaillés -->
+      <!-- Galerie avant/après -->
       <section class="section-padding bg-card">
         <div class="container">
-          <div
-            class="services-grid"
-            id="services-grid-detail"
-            data-services-target="services"
-          ></div>
+          <div class="before-after-gallery" data-before-after-gallery>
+            <!--
+              Galerie Avant/Après :
+              - Objectif : accueillir dynamiquement tous les sliders provenant du tableau Google Sheets.
+              - Variables clés : data-before-after-gallery détecté côté JS pour injecter les cartes.
+              - Logique : chaque entrée du CSV devient une carte avec titre, slider, description.
+            -->
+          </div>
         </div>
       </section>
 
-      <!-- CTA Section -->
+      <!-- CTA final -->
       <section class="section-padding cta-section">
         <div class="container">
           <div class="cta-content">
-            <h2 class="heading-2">Un projet spécifique ?</h2>
+            <h2 class="heading-2">Besoin d'un accompagnement similaire ?</h2>
             <p class="body-large">
-              Chaque situation est unique. Contactez-nous pour discuter de votre
-              projet et recevoir une solution personnalisée adaptée à vos
-              besoins.
+              Notre équipe intervient rapidement pour vos besoins de débarras,
+              nettoyage, désinfection ou remise en état.
             </p>
             <div class="cta-buttons">
               <a href="contact.html" class="btn-primary btn-lg">
-                <span>Nous contacter</span>
+                <span>Demander un devis</span>
                 <i data-lucide="arrow-right" class="icon-sm"></i>
               </a>
               <a
@@ -179,13 +187,14 @@
             </div>
             <p class="body-small footer-description">
               Spécialistes du débarras, du nettoyage et des services
-              multitravaux à Lille et dans tout les Hauts-de-France.
+              multitravaux à Lille et dans toute la région Hauts-de-France.
             </p>
             <div class="footer-availability">
               <i data-lucide="clock" class="icon-sm"></i>
               <span>Disponible 7j/7</span>
             </div>
           </div>
+
           <div class="footer-col">
             <h3 class="heading-6 footer-title">Nos Services</h3>
             <ul class="footer-links">
@@ -200,6 +209,7 @@
               </li>
             </ul>
           </div>
+
           <div class="footer-col">
             <h3 class="heading-6 footer-title">Zones d'intervention</h3>
             <ul class="footer-list">
@@ -210,6 +220,7 @@
               <li>Picardie</li>
             </ul>
           </div>
+
           <div class="footer-col">
             <h3 class="heading-6 footer-title">Contact</h3>
             <div class="footer-contact">
@@ -233,6 +244,7 @@
             </div>
           </div>
         </div>
+
         <div class="footer-bottom">
           <p class="caption">
             © 2024 <span class="brand-name">RENMOB</span>. Tous droits réservés.

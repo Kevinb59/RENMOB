@@ -82,6 +82,7 @@
             <a href="services.html" class="nav-link">Services</a>
             <a href="diogene.html" class="nav-link">Syndrome de Diogène</a>
             <a href="zones.html" class="nav-link">Zones d'intervention</a>
+            <a href="realisations.html" class="nav-link">Nos réalisations</a>
             <a href="contact.html" class="nav-link">Contact</a>
           </nav>
 
@@ -114,6 +115,7 @@
           <a href="services.html" class="nav-link">Services</a>
           <a href="diogene.html" class="nav-link">Syndrome de Diogène</a>
           <a href="zones.html" class="nav-link">Zones d'intervention</a>
+          <a href="realisations.html" class="nav-link">Nos réalisations</a>
           <a href="contact.html" class="nav-link">Contact</a>
           <div class="nav-mobile-cta">
             <div class="header-cta-vertical">
@@ -255,128 +257,12 @@
             </p>
           </div>
 
-          <!-- Liste des services horizontaux -->
-          <div class="services-list">
-            <!-- Service 1: Débarras maison -->
-            <div class="service-card-horizontal">
-              <div class="service-card-image">
-                <img
-                  src="assets/images/debaras-maison-1.jpeg"
-                  alt="Débarras maison & appartement"
-                />
-              </div>
-              <div class="service-card-content">
-                <h3 class="heading-5">Débarras maison & appartement</h3>
-                <p class="body-small">
-                  Débarras complet ou partiel, tri, recyclage et valorisation
-                  des objets. Nous vous rendons un logement vide, propre et prêt
-                  à être vendu, loué ou rénové.
-                </p>
-              </div>
-              <div class="service-card-action">
-                <a href="services.html" class="service-link">
-                  <span>En savoir plus</span>
-                  <i data-lucide="arrow-right" class="icon-sm"></i>
-                </a>
-              </div>
-            </div>
-
-            <!-- Service 2: Débarras cave/grenier -->
-            <div class="service-card-horizontal">
-              <div class="service-card-image">
-                <img
-                  src="assets/images/debaras-grenier.jpeg"
-                  alt="Débarras cave, grenier et garage"
-                />
-              </div>
-              <div class="service-card-content">
-                <h3 class="heading-5">Débarras cave, grenier et garage</h3>
-                <p class="body-small">
-                  Nous désencombrons tous types de pièces. Évacuation de
-                  meubles, cartons, électroménagers et objets lourds ou
-                  volumineux.
-                </p>
-              </div>
-              <div class="service-card-action">
-                <a href="services.html" class="service-link">
-                  <span>En savoir plus</span>
-                  <i data-lucide="arrow-right" class="icon-sm"></i>
-                </a>
-              </div>
-            </div>
-
-            <!-- Service 3: Nettoyage après succession -->
-            <div class="service-card-horizontal">
-              <div class="service-card-image">
-                <img
-                  src="assets/images/renovation-sinistre-exterieure.jpeg"
-                  alt="Nettoyage après succession ou sinistre"
-                />
-              </div>
-              <div class="service-card-content">
-                <h3 class="heading-5">
-                  Nettoyage après succession ou sinistre
-                </h3>
-                <p class="body-small">
-                  Nous intervenons après décès, dégât des eaux, incendie ou
-                  chantier. Rendu habitable et remise en état complète.
-                </p>
-              </div>
-              <div class="service-card-action">
-                <a href="services.html" class="service-link">
-                  <span>En savoir plus</span>
-                  <i data-lucide="arrow-right" class="icon-sm"></i>
-                </a>
-              </div>
-            </div>
-
-            <!-- Service 4: Syndrome de Diogène -->
-            <div class="service-card-horizontal">
-              <div class="service-card-image">
-                <img
-                  src="assets/images/nettoyage-diogene-3.jpeg"
-                  alt="Syndrome de Diogène"
-                />
-              </div>
-              <div class="service-card-content">
-                <h3 class="heading-5">Syndrome de Diogène</h3>
-                <p class="body-small">
-                  Intervention spécialisée, respectueuse et discrète. Tri,
-                  désencombrement, désinfection et nettoyage complet du
-                  logement.
-                </p>
-              </div>
-              <div class="service-card-action">
-                <a href="diogene.html" class="service-link">
-                  <span>En savoir plus</span>
-                  <i data-lucide="arrow-right" class="icon-sm"></i>
-                </a>
-              </div>
-            </div>
-
-            <!-- Service 5: Entretien extérieur -->
-            <div class="service-card-horizontal">
-              <div class="service-card-image">
-                <img
-                  src="assets/images/nettoyage-toiture.jpeg"
-                  alt="Entretien extérieur & toitures"
-                />
-              </div>
-              <div class="service-card-content">
-                <h3 class="heading-5">Entretien extérieur & toitures</h3>
-                <p class="body-small">
-                  Nettoyage et démoussage de toitures, entretien de jardins et
-                  espaces verts.
-                </p>
-              </div>
-              <div class="service-card-action">
-                <a href="services.html" class="service-link">
-                  <span>En savoir plus</span>
-                  <i data-lucide="arrow-right" class="icon-sm"></i>
-                </a>
-              </div>
-            </div>
-          </div>
+          <!-- Liste des services injectée dynamiquement -->
+          <div
+            class="services-list"
+            id="services-list-home"
+            data-services-target="home"
+          ></div>
 
           <!-- Bouton pour voir tous les services -->
           <div class="section-cta">
@@ -400,28 +286,56 @@
 
           <!-- Comparaison Avant/Après -->
           <div class="before-after-container">
-            <div class="before-after-grid">
-              <div class="before-after-item">
+            <div class="before-after-slider" data-before-after-slider>
+              <img
+                class="before-after-image before-after-image-base"
+                src="https://drive.google.com/uc?export=view&id=1h2hNaw1yDBedN1vkYIFFqoBA5VrKR0-m"
+                data-drive-id="1h2hNaw1yDBedN1vkYIFFqoBA5VrKR0-m"
+                alt="État avant l'intervention RENMOB"
+              />
+              <div class="before-after-overlay" data-before-after-overlay>
                 <img
-                  src="assets/images/debaras-maison-1.jpeg"
-                  alt="Avant débarras"
+                  class="before-after-image before-after-image-overlay"
+                  src="https://drive.google.com/uc?export=view&id=1VQqz1oNjc8uZPiMx2XhZOd-YKUZBsFo3"
+                  data-drive-id="1VQqz1oNjc8uZPiMx2XhZOd-YKUZBsFo3"
+                  alt="Résultat après l'intervention RENMOB"
                 />
-                <div class="before-after-badge before-badge">Avant</div>
               </div>
-              <div class="before-after-item">
-                <img
-                  src="assets/images/debaras-apres.jpeg"
-                  alt="Après débarras"
-                />
-                <div class="before-after-badge after-badge">Après</div>
+              <div class="before-after-label before-label" data-before-label>
+                Avant
+              </div>
+              <div class="before-after-label after-label" data-after-label>
+                Après
+              </div>
+              <input
+                type="range"
+                class="before-after-range"
+                data-before-after-range
+                min="0"
+                max="100"
+                value="50"
+                aria-label="Comparer l'état avant et après"
+              />
+              <div
+                class="before-after-handle"
+                data-before-after-handle
+                style="left: 50%"
+              >
+                <span class="before-after-handle-icon">⇆</span>
               </div>
             </div>
             <div class="before-after-text">
-              <h3 class="heading-5">
+              <h3 class="heading-5" data-before-after-description>
                 Débarras et nettoyage complet - Transformation spectaculaire
               </h3>
             </div>
           </div>
+          <!--
+            Explications section Avant/Après :
+            - Objectif : proposer un visualiseur interactif pour montrer la transformation RENMOB.
+            - Variables clés : slider (data-before-after-range), poignée (data-before-after-handle), couche supérieure (data-before-after-overlay).
+            - Logique flux : la valeur du slider pilote la largeur de l'overlay, ce qui révèle progressivement l'image "avant" ou "après" tout en conservant des images superposées et fixes. Le texte (data-before-after-description) est alimenté par le tableau Google Sheets.
+          -->
         </div>
       </section>
 
