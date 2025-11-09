@@ -269,6 +269,19 @@ const SERVICES_CSV_URL =
 const BEFORE_AFTER_CSV_URL =
   'https://docs.google.com/spreadsheets/d/e/2PACX-1vQcSMyt7lSS9HCGXkQYZB7CB-JCwmsLjHp_jmRlXO5JL5deDZ7ZPOhvTyrJBOuapNVjPQ88zXKjv7Su/pub?gid=2068400892&single=true&output=csv'
 
+/**
+ * URL du proxy Apps Script servant les images Drive
+ * IMPORTANT : remplacer REPLACE_WITH_DEPLOYMENT_ID par l'identifiant du déploiement Web App.
+ * Exemple : https://script.google.com/macros/s/AKfycbx.../exec
+ */
+const DRIVE_PROXY_URL =
+  'https://script.google.com/macros/s/AKfycbwkaCj5N0ReZMyI_hDtv51yGevmIvb9Z7l1j9kEyMbfKcKVlgbz9Z793o3RNTt85wcD/exec'
+
+const DRIVE_PROXY_ENABLED =
+  typeof DRIVE_PROXY_URL === 'string' &&
+  DRIVE_PROXY_URL.length > 0 &&
+  !DRIVE_PROXY_URL.includes('REPLACE_WITH_DEPLOYMENT_ID')
+
 async function initDynamicServices() {
   const homeContainer = document.querySelector('[data-services-target="home"]')
   const detailContainer = document.querySelector(
@@ -366,9 +379,11 @@ function buildServiceObject(header, row) {
 
   const longPartTwoRaw = getValue('Description longue partie 2(services)')
 
-  const { url: imageUrl, fileId: imageFileId } = normalizeImageUrl(
-    getValue('Lien image')
-  )
+  const {
+    url: imageUrl,
+    fileId: imageFileId,
+    directUrl: imageDirectUrl
+  } = normalizeImageUrl(getValue('Lien image'))
 
   return {
     name: getValue('Nom'),
@@ -379,7 +394,8 @@ function buildServiceObject(header, row) {
       .map((line) => line.trim())
       .filter((line) => line.length > 0),
     imageUrl,
-    imageFileId
+    imageFileId,
+    imageDirectUrl
   }
 }
 
@@ -469,6 +485,10 @@ function renderHomeServices(container, services) {
     if (service.imageFileId) {
       image.dataset.driveId = service.imageFileId
     }
+    if (service.imageDirectUrl) {
+      image.dataset.directUrl = service.imageDirectUrl
+    }
+    image.dataset.sourceMode = DRIVE_PROXY_ENABLED ? 'proxy' : 'direct'
     image.onerror = handleServiceImageError
     image.alt = service.name
     image.loading = 'lazy'
@@ -542,6 +562,10 @@ function renderDetailServices(container, services) {
     if (service.imageFileId) {
       image.dataset.driveId = service.imageFileId
     }
+    if (service.imageDirectUrl) {
+      image.dataset.directUrl = service.imageDirectUrl
+    }
+    image.dataset.sourceMode = DRIVE_PROXY_ENABLED ? 'proxy' : 'direct'
     image.onerror = handleServiceImageError
     image.alt = service.name
     image.loading = 'lazy'
@@ -692,8 +716,16 @@ async function loadBeforeAfterData() {
       const description = getValueFromRow(row, 'Description')
       const title = getValueFromRow(row, 'Titre')
 
-      const { url: beforeUrl, fileId: beforeId } = normalizeImageUrl(beforeRaw)
-      const { url: afterUrl, fileId: afterId } = normalizeImageUrl(afterRaw)
+      const {
+        url: beforeUrl,
+        fileId: beforeId,
+        directUrl: beforeDirectUrl
+      } = normalizeImageUrl(beforeRaw)
+      const {
+        url: afterUrl,
+        fileId: afterId,
+        directUrl: afterDirectUrl
+      } = normalizeImageUrl(afterRaw)
 
       return {
         id: `before-after-${index}`,
@@ -701,6 +733,8 @@ async function loadBeforeAfterData() {
         beforeId,
         afterUrl,
         afterId,
+        beforeDirectUrl,
+        afterDirectUrl,
         title,
         description
       }
@@ -787,6 +821,9 @@ function renderBeforeAfterGallery(entries) {
     if (entry.beforeId) {
       baseImage.dataset.driveId = entry.beforeId
     }
+    if (entry.beforeDirectUrl) {
+      baseImage.dataset.directUrl = entry.beforeDirectUrl
+    }
     baseImage.alt = entry.title
       ? `Avant - ${entry.title}`
       : 'Avant intervention RENMOB'
@@ -799,6 +836,9 @@ function renderBeforeAfterGallery(entries) {
     afterImage.className = 'before-after-image before-after-image-overlay'
     if (entry.afterId) {
       afterImage.dataset.driveId = entry.afterId
+    }
+    if (entry.afterDirectUrl) {
+      afterImage.dataset.directUrl = entry.afterDirectUrl
     }
     afterImage.alt = entry.title
       ? `Après - ${entry.title}`
@@ -882,6 +922,12 @@ function applyBeforeAfterEntry(sliderElement, entry) {
     } else {
       delete beforeImage.dataset.driveId
     }
+    if (entry.beforeDirectUrl) {
+      beforeImage.dataset.directUrl = entry.beforeDirectUrl
+    } else {
+      delete beforeImage.dataset.directUrl
+    }
+    beforeImage.dataset.sourceMode = DRIVE_PROXY_ENABLED ? 'proxy' : 'direct'
     beforeImage.loading = beforeImage.loading || 'lazy'
     beforeImage.onerror = handleServiceImageError
   }
@@ -893,6 +939,12 @@ function applyBeforeAfterEntry(sliderElement, entry) {
     } else {
       delete afterImage.dataset.driveId
     }
+    if (entry.afterDirectUrl) {
+      afterImage.dataset.directUrl = entry.afterDirectUrl
+    } else {
+      delete afterImage.dataset.directUrl
+    }
+    afterImage.dataset.sourceMode = DRIVE_PROXY_ENABLED ? 'proxy' : 'direct'
     afterImage.loading = afterImage.loading || 'lazy'
     afterImage.onerror = handleServiceImageError
   }
@@ -939,12 +991,17 @@ function initDriveImages() {
       return
     }
 
-    const { url, fileId } = normalizeImageUrl(
+    const { url, fileId, directUrl } = normalizeImageUrl(
       `https://drive.google.com/uc?export=view&id=${driveId}`
     )
 
-    img.dataset.driveId = fileId || driveId
-    img.setAttribute('data-drive-id', fileId || driveId)
+    const resolvedId = fileId || driveId
+    img.dataset.driveId = resolvedId
+    img.setAttribute('data-drive-id', resolvedId)
+    if (directUrl) {
+      img.dataset.directUrl = directUrl
+    }
+    img.dataset.sourceMode = DRIVE_PROXY_ENABLED ? 'proxy' : 'direct'
     img.onerror = handleServiceImageError
     img.loading = img.loading || 'lazy'
     img.src = url
@@ -981,6 +1038,9 @@ function initBeforeAfterSliders() {
       return
     }
 
+    let isDragging = false
+    let activePointerId = null
+
     /**
      * Met à jour la position de l'overlay et du handle
      * @param {number|string} rawValue - valeur brute du slider (0-100)
@@ -1008,9 +1068,47 @@ function initBeforeAfterSliders() {
     rangeInput.addEventListener('input', onRangeInput)
     rangeInput.addEventListener('change', onRangeInput)
 
-    // Gestion du drag sur tout le conteneur
-    const onPointerMove = (event) => {
-      if (!sliderElement.dataset.dragActive) {
+    // Gestion du drag tactile/souris
+    const startDrag = (event) => {
+      event.preventDefault()
+      sliderElement.focus({ preventScroll: true })
+
+      if (event.pointerType === 'touch') {
+        document.body.style.touchAction = 'none'
+      }
+
+      isDragging = true
+      activePointerId = event.pointerId
+      sliderElement.dataset.dragActive = 'true'
+      sliderElement.setPointerCapture(activePointerId)
+      updateFromPointer(event)
+    }
+
+    const stopDrag = (event) => {
+      if (
+        !isDragging ||
+        (activePointerId !== null && event.pointerId !== activePointerId)
+      ) {
+        return
+      }
+
+      isDragging = false
+      sliderElement.dataset.dragActive = ''
+
+      if (event.pointerType === 'touch') {
+        document.body.style.touchAction = ''
+      }
+
+      if (sliderElement.hasPointerCapture(activePointerId)) {
+        sliderElement.releasePointerCapture(activePointerId)
+      }
+
+      rangeInput.dispatchEvent(new Event('change'))
+      activePointerId = null
+    }
+
+    const updateFromPointer = (event) => {
+      if (!isDragging) {
         return
       }
 
@@ -1019,21 +1117,10 @@ function initBeforeAfterSliders() {
       updatePosition(percent)
     }
 
-    const stopDrag = () => {
-      sliderElement.dataset.dragActive = ''
-      window.removeEventListener('pointermove', onPointerMove)
-      window.removeEventListener('pointerup', stopDrag)
-    }
-
-    const startDrag = (event) => {
-      event.preventDefault()
-      sliderElement.dataset.dragActive = 'true'
-      onPointerMove(event)
-      window.addEventListener('pointermove', onPointerMove)
-      window.addEventListener('pointerup', stopDrag, { once: true })
-    }
-
     sliderElement.addEventListener('pointerdown', startDrag)
+    sliderElement.addEventListener('pointermove', updateFromPointer)
+    sliderElement.addEventListener('pointerup', stopDrag)
+    sliderElement.addEventListener('pointercancel', stopDrag)
   })
 }
 
@@ -1054,7 +1141,8 @@ function normalizeImageUrl(url) {
   if (!url) {
     return {
       url: '',
-      fileId: ''
+      fileId: '',
+      directUrl: ''
     }
   }
 
@@ -1079,15 +1167,20 @@ function normalizeImageUrl(url) {
   if (!fileId) {
     return {
       url,
-      fileId: ''
+      fileId: '',
+      directUrl: ''
     }
   }
 
-  const normalizedUrl = `https://drive.google.com/uc?export=view&id=${fileId}`
+  const directUrl = `https://drive.google.com/uc?export=view&id=${fileId}`
+  const proxyUrl = DRIVE_PROXY_ENABLED
+    ? `${DRIVE_PROXY_URL}?mode=drive-image&id=${encodeURIComponent(fileId)}`
+    : directUrl
 
   return {
-    url: normalizedUrl,
-    fileId
+    url: proxyUrl,
+    fileId,
+    directUrl
   }
 }
 
@@ -1104,18 +1197,40 @@ function normalizeImageUrl(url) {
 function handleServiceImageError(event) {
   const image = event.target
   const driveId = image.dataset.driveId
+  const directUrl =
+    image.dataset.directUrl ||
+    (driveId ? `https://drive.google.com/uc?export=view&id=${driveId}` : '')
 
-  if (!driveId) {
+  if (!driveId && !directUrl) {
     setFallbackServiceImage(image)
+    return
+  }
+
+  if (
+    DRIVE_PROXY_ENABLED &&
+    image.dataset.sourceMode !== 'direct' &&
+    directUrl
+  ) {
+    image.dataset.sourceMode = 'direct'
+    image.src = directUrl
     return
   }
 
   if (!image.dataset.fallbackTried) {
     image.dataset.fallbackTried = 'true'
-    image.src = `https://lh3.googleusercontent.com/d/${driveId}=w1200-h800-iv1`
-  } else {
-    setFallbackServiceImage(image)
+    if (driveId) {
+      image.src = `https://lh3.googleusercontent.com/d/${driveId}=w1200-h800-iv1`
+      return
+    }
   }
+
+  if (directUrl && image.dataset.sourceMode !== 'direct') {
+    image.dataset.sourceMode = 'direct'
+    image.src = directUrl
+    return
+  }
+
+  setFallbackServiceImage(image)
 }
 
 /**
@@ -1131,6 +1246,9 @@ function handleServiceImageError(event) {
  */
 function setFallbackServiceImage(image) {
   image.onerror = null
+  image.dataset.sourceMode = 'fallback'
+  delete image.dataset.driveId
+  delete image.dataset.directUrl
   const svgPlaceholder = `
     <svg xmlns="http://www.w3.org/2000/svg" width="800" height="600">
       <rect width="100%" height="100%" fill="#1f1f1f"/>

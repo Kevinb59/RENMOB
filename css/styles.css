@@ -259,6 +259,12 @@ ol {
   backdrop-filter: blur(10px);
 }
 
+.header .container {
+  max-width: 1600px;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
 .header-content {
   display: flex;
   align-items: center;
@@ -279,7 +285,10 @@ ol {
 .nav-desktop {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  flex: 1 1 auto;
+  justify-content: center;
+  gap: clamp(2rem, 6vw, 3.5rem);
+  padding: 0 1rem;
 }
 
 /* Liens de navigation */
@@ -794,6 +803,7 @@ ol {
   background: var(--bg-dark);
   overflow: hidden;
   --slider-position: 50%;
+  touch-action: none;
 }
 
 .before-after-image {

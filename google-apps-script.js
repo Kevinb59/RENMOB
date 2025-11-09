@@ -24,7 +24,7 @@
  * Email qui recevra les demandes de contact
  * À MODIFIER avec votre adresse email
  */
-const EMAIL_DESTINATAIRE = 'ren.mob@gmail.com'
+const EMAIL_DESTINATAIRE = 'renmob.contact@gmail.com'
 
 /**
  * Nom de l'entreprise pour les emails
@@ -110,10 +110,47 @@ function doPost(e) {
  * Fonction appelée lors d'une requête GET (pour tester que le script fonctionne)
  * @returns {Object} - Page HTML simple
  */
-function doGet() {
+function doGet(e) {
+  const mode = (e && e.parameter && e.parameter.mode) || 'status'
+
+  if (mode === 'drive-image') {
+    return servirImageDrive_(e && e.parameter && e.parameter.id)
+  }
+
   return ContentService.createTextOutput(
     'Le script RENMOB fonctionne correctement ✓'
   )
+}
+
+/**
+ * Sert un fichier Google Drive en tant qu'image optimisée pour le web
+ * @param {string} fileId - Identifiant du fichier Drive
+ * @returns {ContentService.BinaryOutput} - Flux binaire de l'image
+ */
+function servirImageDrive_(fileId) {
+  if (!fileId) {
+    return ContentService.createTextOutput('ID manquant')
+      .setMimeType(ContentService.MimeType.TEXT)
+      .setResponseCode(400)
+  }
+
+  try {
+    const file = DriveApp.getFileById(fileId)
+    const blob = file.getBlob()
+
+    return ContentService.createBinaryOutput(blob.getBytes())
+      .setMimeType(blob.getContentType())
+      .setHeaders({
+        'Cache-Control': 'public, max-age=86400',
+        'Access-Control-Allow-Origin': '*'
+      })
+  } catch (error) {
+    Logger.log(`Erreur lors de la récupération du fichier ${fileId}: ${error}`)
+
+    return ContentService.createTextOutput('Image introuvable')
+      .setMimeType(ContentService.MimeType.TEXT)
+      .setResponseCode(404)
+  }
 }
 
 // ========================================
@@ -279,7 +316,7 @@ function envoyerEmailConfirmation(emailClient, nomClient) {
           <div class="footer">
             <p><strong>${NOM_ENTREPRISE}</strong> - Débarras et Nettoyage</p>
             <p>9 Allée de la Plaquette - Avelin 59710</p>
-            <p>📧 ren.mob@gmail.com | 📞 06 62 89 60 49</p>
+            <p>📧 renmob.contact@gmail.com | 📞 06 62 89 60 49</p>
           </div>
         </div>
       </body>
