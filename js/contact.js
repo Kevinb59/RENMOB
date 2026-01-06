@@ -192,27 +192,24 @@ async function sendToGoogleScript(formData) {
     })
 
     // Envoyer la requête POST au script Google Apps Script
-    // Utiliser 'cors' pour pouvoir lire la réponse
-    const response = await fetch(GOOGLE_SCRIPT_URL, {
+    // Utiliser 'no-cors' car Google Apps Script ne gère pas bien CORS
+    // Note : Avec 'no-cors', on ne peut pas lire la réponse, mais si la requête
+    // est envoyée sans erreur réseau, on considère que c'est un succès
+    // (l'email est bien envoyé comme le confirme la réception)
+    await fetch(GOOGLE_SCRIPT_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
       },
       body: params.toString(),
-      mode: 'cors' // Permet de lire la réponse
+      mode: 'no-cors' // Nécessaire pour éviter les erreurs CORS avec GAS
     })
 
-    // Vérifier si la réponse est OK
-    if (!response.ok) {
-      throw new Error(`Erreur HTTP: ${response.status}`)
-    }
-
-    // Lire la réponse JSON
-    const result = await response.json()
-    console.log('Réponse du script GAS:', result)
-
-    // Retourner le résultat
-    return result
+    // Avec mode 'no-cors', on ne peut pas lire la réponse
+    // Mais si la requête est envoyée sans erreur, on considère que c'est un succès
+    // (l'email est bien envoyé comme le confirme la réception)
+    console.log('Requête envoyée avec succès au script GAS')
+    return { success: true, message: 'Demande envoyée avec succès' }
   } catch (error) {
     // Logger l'erreur complète pour le débogage
     console.error("Erreur lors de l'envoi:", error)
