@@ -156,14 +156,11 @@ function validateFormData(formData) {
  *
  * Logique d'envoi :
  * 1. Convertit FormData en URLSearchParams pour le format URL-encoded
- * 2. Envoie avec fetch en mode 'no-cors'
- * 3. Retourne toujours un succès (les emails sont bien envoyés malgré les warnings CORS)
- *
- * Note : Avec 'no-cors', le navigateur peut afficher des warnings CORS dans la console
- * mais les emails sont bien envoyés. On retourne toujours un succès.
+ * 2. Envoie avec Content-Type: application/x-www-form-urlencoded
+ * 3. Lit la réponse JSON pour vérifier le succès
  *
  * @param {FormData} formData - Les données du formulaire
- * @returns {Promise<Object>} - Réponse du serveur (toujours success: true)
+ * @returns {Promise<Object>} - Réponse du serveur
  */
 async function sendToGoogleScript(formData) {
   // Vérifier que l'URL du script est configurée
@@ -176,51 +173,51 @@ async function sendToGoogleScript(formData) {
     return { success: true }
   }
 
-  // Convertir FormData en URLSearchParams pour le format URL-encoded
-  // Google Apps Script attend les données via e.parameter, donc format URL-encoded
-  const params = new URLSearchParams()
-  params.append('name', formData.get('name') || '')
-  params.append('phone', formData.get('phone') || '')
-  params.append('email', formData.get('email') || 'Non renseigné')
-  params.append('service', formData.get('service') || 'Non spécifié')
-  params.append('message', formData.get('message') || '')
+  try {
+    // Convertir FormData en URLSearchParams pour le format URL-encoded
+    // Google Apps Script attend les données via e.parameter, donc format URL-encoded
+    const params = new URLSearchParams()
+    params.append('name', formData.get('name') || '')
+    params.append('phone', formData.get('phone') || '')
+    params.append('email', formData.get('email') || 'Non renseigné')
+    params.append('service', formData.get('service') || 'Non spécifié')
+    params.append('message', formData.get('message') || '')
 
-  // Logger les données envoyées pour le débogage
-  console.log('Envoi des données au script GAS:', {
-    name: params.get('name'),
-    phone: params.get('phone'),
-    email: params.get('email'),
-    service: params.get('service')
-  })
+    // Logger les données envoyées pour le débogage
+    console.log('Envoi des données au script GAS:', {
+      name: params.get('name'),
+      phone: params.get('phone'),
+      email: params.get('email'),
+      service: params.get('service')
+    })
 
-  // Envoyer la requête POST au script Google Apps Script
-  // Utiliser 'no-cors' car Google Apps Script ne renvoie pas les headers CORS
-  // IMPORTANT : Avec 'no-cors', on ne peut PAS définir de headers personnalisés
-  // Le navigateur définira automatiquement Content-Type pour URLSearchParams
-  //
-  // Note : Avec mode 'no-cors', le navigateur peut afficher des warnings CORS dans la console
-  // mais cela n'empêche pas la requête d'être envoyée. Les emails sont bien reçus.
-  // On considère toujours un succès car on ne peut pas vérifier la réponse avec no-cors.
-  fetch(GOOGLE_SCRIPT_URL, {
-    method: 'POST',
-    // Pas de headers avec mode 'no-cors' - le navigateur les gère automatiquement
-    body: params.toString(),
-    mode: 'no-cors' // Nécessaire car GAS ne gère pas CORS correctement
-  }).catch((error) => {
-    // Ignorer les erreurs CORS - elles sont normales avec no-cors
-    // La requête est quand même envoyée et les emails sont bien reçus
-    console.warn(
-      'Avertissement CORS (normal avec no-cors, ignoré):',
-      error.message
-    )
-  })
+    // Envoyer la requête POST au script Google Apps Script
+    // Utiliser 'cors' pour pouvoir lire la réponse
+    const response = await fetch(GOOGLE_SCRIPT_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: params.toString(),
+      mode: 'cors' // Permet de lire la réponse
+    })
 
-  // Avec mode 'no-cors', on ne peut pas lire la réponse ni détecter les erreurs CORS
-  // Mais comme les emails sont bien envoyés (confirmé par les tests), on considère toujours un succès
-  // Attendre un court délai pour laisser le temps au script GAS de traiter la requête
-  await new Promise((resolve) => setTimeout(resolve, 800))
+    // Vérifier si la réponse est OK
+    if (!response.ok) {
+      throw new Error(`Erreur HTTP: ${response.status}`)
+    }
 
-  return { success: true, message: 'Demande envoyée avec succès' }
+    // Lire la réponse JSON
+    const result = await response.json()
+    console.log('Réponse du script GAS:', result)
+
+    // Retourner le résultat
+    return result
+  } catch (error) {
+    // Logger l'erreur complète pour le débogage
+    console.error("Erreur lors de l'envoi:", error)
+    return { success: false, error: error.message }
+  }
 }
 
 // ========================================
