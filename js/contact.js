@@ -155,15 +155,18 @@ function validateFormData(formData) {
  * - formData: Données à envoyer
  *
  * Logique d'envoi :
- * 1. Convertit FormData en URLSearchParams pour le format URL-encoded
- * 2. Envoie avec Content-Type: application/x-www-form-urlencoded
- * 3. Utilise mode 'no-cors' car Google Apps Script ne gère pas CORS correctement
- * 4. Considère un succès si la requête est envoyée sans erreur réseau
+ * 1. Crée un formulaire HTML caché avec les données du formulaire
+ * 2. Soumet le formulaire via un iframe caché (contourne CORS)
+ * 3. Écoute le chargement de l'iframe pour détecter la fin de la soumission
+ * 4. Nettoie les éléments créés après l'envoi
  *
- * Note : Avec 'no-cors', on ne peut pas lire la réponse, mais les emails sont bien envoyés
+ * Cette méthode est fiable car :
+ * - Les formulaires HTML standards ne sont pas soumis aux restrictions CORS
+ * - Google Apps Script reçoit les données correctement via e.parameter
+ * - Pas de problèmes de parsing ou d'envoi
  *
  * @param {FormData} formData - Les données du formulaire
- * @returns {Promise<Object>} - Réponse du serveur (toujours success: true si envoyé)
+ * @returns {Promise<Object>} - Réponse du serveur (success: true après envoi)
  */
 async function sendToGoogleScript(formData) {
   // Vérifier que l'URL du script est configurée
@@ -176,51 +179,72 @@ async function sendToGoogleScript(formData) {
     return { success: true }
   }
 
-  // Convertir FormData en URLSearchParams pour le format URL-encoded
-  // Google Apps Script attend les données via e.parameter, donc format URL-encoded
-  const params = new URLSearchParams()
-  params.append('name', formData.get('name') || '')
-  params.append('phone', formData.get('phone') || '')
-  params.append('email', formData.get('email') || 'Non renseigné')
-  params.append('service', formData.get('service') || 'Non spécifié')
-  params.append('message', formData.get('message') || '')
+  // Récupérer les valeurs du formulaire
+  const name = formData.get('name') || ''
+  const phone = formData.get('phone') || ''
+  const email = formData.get('email') || 'Non renseigné'
+  const service = formData.get('service') || 'Non spécifié'
+  const message = formData.get('message') || ''
 
   // Logger les données envoyées pour le débogage
   console.log('Envoi des données au script GAS:', {
-    name: params.get('name'),
-    phone: params.get('phone'),
-    email: params.get('email'),
-    service: params.get('service')
+    name: name,
+    phone: phone,
+    email: email,
+    service: service
   })
 
-  // Envoyer la requête POST au script Google Apps Script
-  // Utiliser 'no-cors' car Google Apps Script ne renvoie pas les headers CORS
-  // IMPORTANT : Avec 'no-cors', on ne peut PAS définir de headers personnalisés
-  // Le navigateur définira automatiquement Content-Type pour URLSearchParams
-  //
-  // Note : Avec mode 'no-cors', le navigateur peut afficher des warnings CORS dans la console
-  // mais cela n'empêche pas la requête d'être envoyée. Les emails sont bien reçus.
-  // On considère toujours un succès car on ne peut pas vérifier la réponse avec no-cors.
-  fetch(GOOGLE_SCRIPT_URL, {
-    method: 'POST',
-    // Pas de headers avec mode 'no-cors' - le navigateur les gère automatiquement
-    body: params.toString(),
-    mode: 'no-cors' // Nécessaire car GAS ne gère pas CORS correctement
-  }).catch((error) => {
-    // Ignorer les erreurs CORS - elles sont normales avec no-cors
-    // La requête est quand même envoyée et les emails sont bien reçus
-    console.warn(
-      'Avertissement CORS (normal avec no-cors, ignoré):',
-      error.message
-    )
+  // Méthode fiable : créer un formulaire caché et le soumettre via un iframe
+  // Cela contourne complètement les problèmes CORS avec Google Apps Script
+  return new Promise((resolve) => {
+    // Créer un iframe caché pour la soumission
+    const iframe = document.createElement('iframe')
+    iframe.style.display = 'none'
+    iframe.name = 'hidden-iframe-' + Date.now()
+    document.body.appendChild(iframe)
+
+    // Créer un formulaire caché avec les données
+    const form = document.createElement('form')
+    form.method = 'POST'
+    form.action = GOOGLE_SCRIPT_URL
+    form.target = iframe.name
+    form.style.display = 'none'
+
+    // Ajouter les champs au formulaire
+    const fields = {
+      name: name,
+      phone: phone,
+      email: email,
+      service: service,
+      message: message
+    }
+
+    for (const [key, value] of Object.entries(fields)) {
+      const input = document.createElement('input')
+      input.type = 'hidden'
+      input.name = key
+      input.value = value
+      form.appendChild(input)
+    }
+
+    // Ajouter le formulaire au DOM
+    document.body.appendChild(form)
+
+    // Écouter le chargement de l'iframe pour détecter la fin de la soumission
+    iframe.onload = function () {
+      // Attendre un peu pour laisser le temps au script de traiter
+      setTimeout(() => {
+        // Nettoyer : retirer le formulaire et l'iframe
+        document.body.removeChild(form)
+        document.body.removeChild(iframe)
+        console.log('Requête envoyée au script GAS avec succès')
+        resolve({ success: true, message: 'Demande envoyée avec succès' })
+      }, 1000)
+    }
+
+    // Soumettre le formulaire
+    form.submit()
   })
-
-  // Avec mode 'no-cors', on ne peut pas lire la réponse ni détecter les erreurs CORS
-  // Mais comme les emails sont bien envoyés (confirmé par les tests), on considère toujours un succès
-  // Attendre un court délai pour laisser le temps au script GAS de traiter la requête
-  await new Promise((resolve) => setTimeout(resolve, 800))
-
-  return { success: true, message: 'Demande envoyée avec succès' }
 }
 
 // ========================================
