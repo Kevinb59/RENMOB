@@ -35,3 +35,6 @@ yarn.lock
 
 # Documentation Markdown
 *.md
+# Exception : Guides de configuration importants
+!GUIDE_*.md
+!README.md
