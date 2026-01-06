@@ -68,7 +68,13 @@ function doPost(e) {
           success: false,
           message: 'Données manquantes'
         })
-      ).setMimeType(ContentService.MimeType.JSON)
+      )
+        .setMimeType(ContentService.MimeType.JSON)
+        .setHeaders({
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
+          'Access-Control-Allow-Headers': 'Content-Type'
+        })
     }
 
     // Envoyer l'email de notification
@@ -82,13 +88,19 @@ function doPost(e) {
     // Optionnel : Enregistrer dans une feuille Google Sheets
     // enregistrerDansSheets(name, phone, email, service, message, dateFormatee);
 
-    // Retourner un succès
+    // Retourner un succès avec headers CORS
     return ContentService.createTextOutput(
       JSON.stringify({
         success: true,
         message: 'Demande envoyée avec succès'
       })
-    ).setMimeType(ContentService.MimeType.JSON)
+    )
+      .setMimeType(ContentService.MimeType.JSON)
+      .setHeaders({
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type'
+      })
   } catch (error) {
     // En cas d'erreur, logger et retourner une erreur
     Logger.log('Erreur: ' + error.toString())
@@ -98,7 +110,13 @@ function doPost(e) {
         success: false,
         message: "Erreur lors de l'envoi: " + error.toString()
       })
-    ).setMimeType(ContentService.MimeType.JSON)
+    )
+      .setMimeType(ContentService.MimeType.JSON)
+      .setHeaders({
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type'
+      })
   }
 }
 

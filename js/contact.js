@@ -13,7 +13,8 @@
  * Variables clés :
  * - scriptURL: L'URL du Web App Google Apps Script déployé
  */
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwkaCj5N0ReZMyI_hDtv51yGevmIvb9Z7l1j9kEyMbfKcKVlgbz9Z793o3RNTt85wcD/exec'
+const GOOGLE_SCRIPT_URL =
+  'https://script.google.com/macros/s/AKfycbzRhvnT7FWHy4dbJB5ve0w-O1SWyIBrfZY5tbohYRF8RKJHbl-5qarxvNrdklqpLcRy/exec'
 
 // ========================================
 // 2. INITIALISATION
@@ -153,6 +154,11 @@ function validateFormData(formData) {
  * - GOOGLE_SCRIPT_URL: URL du script GAS
  * - formData: Données à envoyer
  *
+ * Logique d'envoi :
+ * 1. Convertit FormData en URLSearchParams pour le format URL-encoded
+ * 2. Envoie avec Content-Type: application/x-www-form-urlencoded
+ * 3. Lit la réponse JSON pour vérifier le succès
+ *
  * @param {FormData} formData - Les données du formulaire
  * @returns {Promise<Object>} - Réponse du serveur
  */
@@ -168,17 +174,47 @@ async function sendToGoogleScript(formData) {
   }
 
   try {
-    // Envoyer la requête POST au script Google Apps Script
-    const response = await fetch(GOOGLE_SCRIPT_URL, {
-      method: 'POST',
-      body: formData,
-      mode: 'no-cors' // Important pour Google Apps Script
+    // Convertir FormData en URLSearchParams pour le format URL-encoded
+    // Google Apps Script attend les données via e.parameter, donc format URL-encoded
+    const params = new URLSearchParams()
+    params.append('name', formData.get('name') || '')
+    params.append('phone', formData.get('phone') || '')
+    params.append('email', formData.get('email') || 'Non renseigné')
+    params.append('service', formData.get('service') || 'Non spécifié')
+    params.append('message', formData.get('message') || '')
+
+    // Logger les données envoyées pour le débogage
+    console.log('Envoi des données au script GAS:', {
+      name: params.get('name'),
+      phone: params.get('phone'),
+      email: params.get('email'),
+      service: params.get('service')
     })
 
-    // Note : Avec mode 'no-cors', on ne peut pas lire la réponse
-    // On suppose que c'est un succès si aucune erreur n'est levée
-    return { success: true }
+    // Envoyer la requête POST au script Google Apps Script
+    // Utiliser 'cors' pour pouvoir lire la réponse
+    const response = await fetch(GOOGLE_SCRIPT_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: params.toString(),
+      mode: 'cors' // Permet de lire la réponse
+    })
+
+    // Vérifier si la réponse est OK
+    if (!response.ok) {
+      throw new Error(`Erreur HTTP: ${response.status}`)
+    }
+
+    // Lire la réponse JSON
+    const result = await response.json()
+    console.log('Réponse du script GAS:', result)
+
+    // Retourner le résultat
+    return result
   } catch (error) {
+    // Logger l'erreur complète pour le débogage
     console.error("Erreur lors de l'envoi:", error)
     return { success: false, error: error.message }
   }
