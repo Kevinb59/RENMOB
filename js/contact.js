@@ -13,7 +13,7 @@
  * Variables clés :
  * - scriptURL: L'URL du Web App Google Apps Script déployé
  */
-const GOOGLE_SCRIPT_URL = 'VOTRE_URL_GOOGLE_APPS_SCRIPT_ICI'
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwkaCj5N0ReZMyI_hDtv51yGevmIvb9Z7l1j9kEyMbfKcKVlgbz9Z793o3RNTt85wcD/exec'
 
 // ========================================
 // 2. INITIALISATION
